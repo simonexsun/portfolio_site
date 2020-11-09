@@ -29,11 +29,11 @@ let fetchRecord = function(slug) {
         process.innerHTML = record.fields.Process;
         created_year.innerHTML = new Date (record.fields.Created_date).getFullYear();//convret Date to year
         
-        let media_data= record.fields.Media;
-        console.log(`media: ${media_data}`);
-        // media.innerHTML = media_data[0];
-        //parse a array of strings to one string
-        role.innerHTML = record.get('Role');
+        let raw_data= record.fields.Media;
+        console.log(`media: ${raw_data.toString()}`);
+        // media.innerHTML = raw_data.toString();
+
+        role.innerHTML = record.fields.Role;
         credits.innerHTML = record.fields.Credits;
     });
   }, function done(err) {
@@ -48,18 +48,17 @@ let makeNavigation = function() {
     view: "Grid view"
   }).eachPage(function page(records, fetchNextPage) {
     records.forEach(function(record) {
-      let listItem = document.createElement('li');
-      let anchor = document.createElement('a');
+        let listItem = document.createElement('li');
+        let anchor = document.createElement('a');
+        listItem.classList.add('dropdown-item');
+        let link = 'case_study.html?' + record.fields.Slug;
 
-      let link = 'case_study.html?' + record.fields.Slug;
+        anchor.innerHTML = record.fields.Title;
+        anchor.setAttribute('href', link);
 
-      anchor.innerHTML = link;
-      anchor.setAttribute('href', link);
+        listItem.appendChild(anchor);
 
-      listItem.appendChild(anchor);
-
-      navigationContainer.appendChild(listItem);
-
+        navigationContainer.appendChild(listItem);
     });
   }, function done(err) {
     if (err) { console.error(err); return; }
