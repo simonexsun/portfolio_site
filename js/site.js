@@ -11,6 +11,7 @@ let fetchRecord = function(slug) {
   let formula = `Slug="${slug}"`;
 
   let title = document.querySelector('.dynamic-title');
+  let main_img = document.querySelector('.dynamic-main-img');
   let description = document.querySelector('.dynamic-description');
   let process = document.querySelector('.dynamic-process');
   let created_year = document.querySelector('.dynamic-year');
@@ -25,6 +26,7 @@ let fetchRecord = function(slug) {
   }).eachPage(function page(records, fetchNextPage) {
     records.forEach(function(record) {
         title.innerHTML = record.fields.Title;
+        main_img.setAttribute('src', record.fields.Project_img[0].thumbnails.full.url);
         description.innerHTML = record.fields.Description;
         process.innerHTML = record.fields.Process;
         created_year.innerHTML = new Date (record.fields.Created_date).getFullYear();//convret Date to year
