@@ -10,14 +10,14 @@ let fetchRecord = function(slug) {
 
   let formula = `Slug="${slug}"`;
 
-  let title = document.querySelector('.dynamic-title');
-  let main_img = document.querySelector('.dynamic-main-img');
-  let description = document.querySelector('.dynamic-description');
-  let process = document.querySelector('.dynamic-process');
-  let created_year = document.querySelector('.dynamic-year');
-  let media = document.querySelector('.dynamic-meida');
-  let role = document.querySelector('.dynamic-role');
-  let credits = document.querySelector('.dynamic-credits');
+  let title = document.querySelector('.dynamic_title');
+  let main_img = document.querySelector('.dynamic_main_img');
+  let description = document.querySelector('.dynamic_description');
+  let process = document.querySelector('.dynamic_process');
+  let created_year = document.querySelector('.dynamic_year');
+  let media = document.querySelector('.dynamic_meida');
+  let role = document.querySelector('.dynamic_role');
+  let credits = document.querySelector('.dynamic_credits');
 
   base('Main').select({
     filterByFormula: formula,
@@ -44,7 +44,7 @@ let fetchRecord = function(slug) {
 }
 
 let makeNavigation = function() {
-  let navigationContainer = document.querySelector('.dynamic-navigation');
+  let navigationContainer = document.querySelector('.dynamic_navigation');
 
   base('Main').select({
     view: "Grid view"
