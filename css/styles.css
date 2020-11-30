@@ -79,7 +79,6 @@ a {
 .button{
     cursor: pointer;
     margin: .5rem;
-    height: 50px; width:50px;
     border-radius: 50%;
     border:none;
     text-decoration: none;
@@ -91,11 +90,13 @@ a {
 }
 
 .button_primary{
+    height: 50px; width:50px;
     background-color: transparent;
 }
 .button_secondary{
     color: white;
     background-color: rgb(207, 54, 34);
+    padding:10px;
 }
 /* general layout */
 .parent {
