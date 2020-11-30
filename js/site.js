@@ -1,8 +1,10 @@
 let Airtable = require('airtable');
 
 let base = new Airtable({apiKey: 'keyfpZwKVsD8rJeMF'}).base('appEix67CO2YQY2rP');
+let slugList=[];
 
 let fetchCaseStudy = function(slug) {
+
   if (!slug) {
     console.log('No slug provided, cancelling API call');
     return;
@@ -33,69 +35,98 @@ let fetchCaseStudy = function(slug) {
     view: "Grid view"
   }).eachPage(function page(records, fetchNextPage) {
     records.forEach(function(record) {
-        function retrieveText(object,fieldName){
-          if (record.fields[fieldName] !== undefined){
-            object.innerHTML=record.fields[fieldName];
-          }
-          else{console.log(`${fieldName} is undefined.`);}
+      function retrieveText(object,fieldName){
+        if (record.fields[fieldName] !== undefined){
+          object.innerHTML=record.fields[fieldName];
         }
+        else{console.log(`${fieldName} is undefined.`);}
+      }
 
-        function retrieveImage(object,fieldName){
-          if (record.fields[fieldName] !== undefined){
-            object.setAttribute('src', record.fields[fieldName][0].thumbnails.full.url);
-          }
-          else{console.log(`${fieldName} is undefined.`);}
+      function retrieveImage(object,fieldName){
+        if (record.fields[fieldName] !== undefined){
+          object.setAttribute('src', record.fields[fieldName][0].thumbnails.full.url);
         }
-        
-        // text
-        retrieveText(title,"Title");
-        retrieveText(subtitle,"Subtitle");
-        retrieveText(institution,"Institution");
-        created_year.innerHTML = new Date (record.fields.Created_date).getFullYear();//convret Date to year
-        retrieveText(description,"Description");
-        retrieveText(concept,"Concept");
-        retrieveText(fabricating,"Fabricating");
-        retrieveText(summary,"Summary");
-        retrieveText(reflection,"Reflection");
+        else{console.log(`${fieldName} is undefined.`);}
+      }
+      
+      // text
+      retrieveText(title,"Title");
+      retrieveText(subtitle,"Subtitle");
+      retrieveText(institution,"Institution");
+      created_year.innerHTML = new Date (record.fields.Created_date).getFullYear();//convret Date to year
+      retrieveText(description,"Description");
+      retrieveText(concept,"Concept");
+      retrieveText(fabricating,"Fabricating");
+      retrieveText(summary,"Summary");
+      retrieveText(reflection,"Reflection");
 
-        // images
-        retrieveImage(cover_img,"Cover_img");
-        retrieveImage(project_img,"Project_img");
-        retrieveImage(sketch_img,"Sketch_img");
-        retrieveImage(process_img,"Process_img");
-        record.fields.Final_product_img.forEach(function(attachment){
-          let final_product_img = document.createElement('img');
-          final_product_img.setAttribute('src', attachment.url);
-          final_product_img.setAttribute( 'alt', "Final Project Image");
-          final_product_img.classList.add('dynamic_final_product_img');
-          final_product_img_div.appendChild(final_product_img);
-        });
+      // images
+      retrieveImage(cover_img,"Cover_img");
+      retrieveImage(project_img,"Project_img");
+      retrieveImage(sketch_img,"Sketch_img");
+      retrieveImage(process_img,"Process_img");
+      record.fields.Final_product_img.forEach(function(attachment){
+        let final_product_img = document.createElement('img');
+        final_product_img.setAttribute('src', attachment.url);
+        final_product_img.setAttribute( 'alt', "Final Project Image");
+        final_product_img.classList.add('dynamic_final_product_img');
+        final_product_img_div.appendChild(final_product_img);
+      });
     });
   }, function done(err) {
     if (err) { console.error(err); return; }
   });
 }
 
-let makeNavigation = function() {
+let makeNavigation = function(slug) {
   let navigationContainer = document.querySelector('.dynamic_navigation');
+  let previousButton = document.querySelector('#previous');
+  let nextButton = document.querySelector('#next');
 
   base('Case_Study').select({
     view: "Grid view"
   }).eachPage(function page(records, fetchNextPage) {
     records.forEach(function(record) {
-        let listItem = document.createElement('li');
-        let anchor = document.createElement('a');
-        listItem.classList.add('dropdown_item');
-        listItem.classList.add('type_body_2');
-        anchor.classList.add('project_link');
-        let link = 'case_study.html?' + record.fields.Slug;
+      let listItem = document.createElement('li');
+      let anchor = document.createElement('a');
+      listItem.classList.add('dropdown_item');
+      listItem.classList.add('type_body_2');
+      anchor.classList.add('project_link');
+      let link = 'case_study.html?' + record.fields.Slug;
 
-        anchor.innerHTML = record.fields.Title;
-        anchor.setAttribute('href', link);
+      anchor.innerHTML = record.fields.Title;
+      anchor.setAttribute('href', link);
 
-        listItem.appendChild(anchor);
+      listItem.appendChild(anchor);
+      navigationContainer.appendChild(listItem);
 
-        navigationContainer.appendChild(listItem);
+      slugList.push(record.fields.Slug);  
+      for (let i = 0; i < slugList.length; i++){
+        if (slug == slugList[i]){
+          previousButton.onclick = function(){
+            if(i > 0){
+              i = i-1;
+            }
+            else if(i == 0){
+              i = slugList.length-1;
+            }
+            window.location.href = "case_study.html?" +  slugList[i];
+          }
+          nextButton.onclick = function(){
+            if(i < slugList.length-1){
+              i = i+1;
+            }
+            else if(i == slugList.length-1){
+              i = 0;
+            }
+            window.location.href = "case_study.html?" +  slugList[i];
+          }
+          console.log("location now is ", slugList[i], i);
+        }
+      }
+
+      
+
     });
   }, function done(err) {
     if (err) { console.error(err); return; }
@@ -131,8 +162,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
   let slug = searchParam.substring(1);
 
   fetchCaseStudy(slug);
-
-  makeNavigation();
-
+  makeNavigation(slug);
   fetchAboutPage();
 });
