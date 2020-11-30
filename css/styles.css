@@ -102,7 +102,7 @@ a {
     display: grid; 
     grid-template-columns: repeat(2, 1fr); 
     grid-template-rows: 1fr; 
-    grid-column-gap: 0px;
+    grid-column-gap: 30px;
     grid-row-gap: 0px; 
 }
 .left_column { grid-area: 1 / 1 / 2 / 2; } 
@@ -154,10 +154,10 @@ a {
     background-color: white;
 }
 .dropdown_menu:hover .work {
-    border-radius: 1rem;
-    background-color: rgb(207, 54, 34);
-    color:white;
+    color: rgb(207, 54, 34);
+    text-shadow: 0.1px 0.1px 2px rgb(207, 54, 34);
     transition: .8s ease;
+    cursor: default;
 }
 
 /* navigation */
@@ -168,17 +168,15 @@ a {
     cursor: pointer;
 }
 .navigation_item:hover {
-    width:35%;
-    border-radius: 1rem;
-    background-color: rgb(207, 54, 34);
-    color:white;
+    /* width:35%; */
+    color: rgb(207, 54, 34);
+    text-shadow: 0.1px 0.1px 2px rgb(207, 54, 34);
     transition: .8s ease;
 }
 
 .copyright {
     text-align: center;
 }
-
 
 
 

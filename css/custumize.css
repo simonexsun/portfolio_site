@@ -1,8 +1,13 @@
-.slider {
+.y_slider {
 	scroll-snap-type: y mandatory;	
 	-webkit-overflow-scrolling: touch;
-	overflow-y: scroll;
 }
+
+.x_slider {
+    scroll-snap-type: x mandatory;	
+	-webkit-overflow-scrolling: touch;
+}
+
 .section { scroll-snap-align: start;}
 
 .logo {
@@ -21,7 +26,7 @@
     height:90vh;
 }
 .cover_content {
-    margin-top: 52.8vh;
+    margin-top: 58vh;
     padding:5vh 0;
     padding-left: 5vw;
     color: white;
@@ -31,8 +36,46 @@
 .dynamic_cover_img {
     position: absolute;
     height: 90vh;
+    width:100vw;
     top:10vh;
     right:0;
     margin: auto;
     z-index:-1;
+}
+
+.dynamic_final_product_img_container {
+    display: flex;
+    overflow: scroll;
+    overflow-y: hidden; 
+}
+    
+.dynamic_final_product_img {
+    scroll-snap-align: start; 
+    height: 300px;
+    width: auto;
+    padding: 20px 50px 20px 0;
+}
+/* custermized scrollbar */
+.dynamic_final_product_img_container::-webkit-scrollbar {
+    height: 8px;
+}
+.dynamic_final_product_img_container::-webkit-scrollbar-track {
+    background: transparent;
+}
+.dynamic_final_product_img_container::-webkit-scrollbar-thumb {
+    background: rgb(130,130,130);
+    border-radius: 4px
+} 
+.dynamic_final_product_img_container::-webkit-scrollbar-thumb:hover {
+    background: rgb(63, 63, 63);
+}
+
+.dynamic_photo {
+    width: 70%;
+    padding-left:8vw;
+}
+
+.home_content {
+    position: absolute;
+    bottom:20vh;
 }

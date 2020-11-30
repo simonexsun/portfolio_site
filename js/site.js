@@ -2,60 +2,74 @@ let Airtable = require('airtable');
 
 let base = new Airtable({apiKey: 'keyfpZwKVsD8rJeMF'}).base('appEix67CO2YQY2rP');
 
-let fetchRecord = function(slug) {
+let fetchCaseStudy = function(slug) {
   if (!slug) {
     console.log('No slug provided, cancelling API call');
     return;
   }
 
   let formula = `Slug="${slug}"`;
-
+  // text
   let title = document.querySelector('.dynamic_title');
   let subtitle = document.querySelector('.dynamic_subtitle');
   let description = document.querySelector('.dynamic_description');
   let concept = document.querySelector('.dynamic_concept');
-  let refining = document.querySelector('.dynamic_refining');
   let fabricating = document.querySelector('.dynamic_fabricating');
   let summary = document.querySelector('.dynamic_summary');
   let created_year = document.querySelector('.dynamic_year');
   let institution = document.querySelector('.dynamic_institution');
+  let reflection = document.querySelector('.dynamic_reflection');
 
+  // images
   let cover_img = document.querySelector('.dynamic_cover_img');
-  let idea_img = document.querySelector('.dynamic_idea_img');
+  let project_img = document.querySelector('.dynamic_project_img');
   let sketch_img = document.querySelector('.dynamic_sketch_img');
-  let prototype_img = document.querySelector('.dynamic_prototype_img');
   let process_img = document.querySelector('.dynamic_process_img');
-  let final_product_img = document.querySelector('.dynamic_final_product_img');
+  let final_product_img_div = document.querySelector('.dynamic_final_product_img_container');
 
-  // let media = document.querySelector('.dynamic_meida');
-  // let role = document.querySelector('.dynamic_role');
-  // let credits = document.querySelector('.dynamic_credits');
-
-  base('Main').select({
+  base('Case_Study').select({
     filterByFormula: formula,
     maxRecords: 1,
     view: "Grid view"
   }).eachPage(function page(records, fetchNextPage) {
     records.forEach(function(record) {
-        title.innerHTML = record.fields.Title;
-        subtitle.innerHTML = record.fields.Subtitle;
-        description.innerHTML = record.fields.Description;
-        concept.innerHTML = record.fields.Concept;
-        refining.innerHTML = record.fields.Refining;
-        fabricating.innerHTML = record.fields.Fabricating;
-        summary.innerHTML = record.fields.Summary;
+        function retrieveText(object,fieldName){
+          if (record.fields[fieldName] !== undefined){
+            object.innerHTML=record.fields[fieldName];
+          }
+          else{console.log(`${fieldName} is undefined.`);}
+        }
+
+        function retrieveImage(object,fieldName){
+          if (record.fields[fieldName] !== undefined){
+            object.setAttribute('src', record.fields[fieldName][0].thumbnails.full.url);
+          }
+          else{console.log(`${fieldName} is undefined.`);}
+        }
+        
+        // text
+        retrieveText(title,"Title");
+        retrieveText(subtitle,"Subtitle");
+        retrieveText(institution,"Institution");
         created_year.innerHTML = new Date (record.fields.Created_date).getFullYear();//convret Date to year
-        institution.innerHTML = record.fields.Institution;
-        // role.innerHTML = record.fields.Role;
-        // credits.innerHTML = record.fields.Credits;
+        retrieveText(description,"Description");
+        retrieveText(concept,"Concept");
+        retrieveText(fabricating,"Fabricating");
+        retrieveText(summary,"Summary");
+        retrieveText(reflection,"Reflection");
 
-        cover_img.setAttribute('src', record.fields.Cover_img[0].thumbnails.full.url);
-        idea_img.setAttribute('src', record.fields.Project_img[1].thumbnails.full.url);
-        sketch_img.setAttribute('src', record.fields.Process_img[0].thumbnails.full.url);
-        prototype_img.setAttribute('src', record.fields.Project_img[2].thumbnails.full.url);
-        process_img.setAttribute('src', record.fields.Process_img[1].thumbnails.full.url);
-        final_product_img.setAttribute('src', record.fields.Project_img[1].thumbnails.full.url);
-
+        // images
+        retrieveImage(cover_img,"Cover_img");
+        retrieveImage(project_img,"Project_img");
+        retrieveImage(sketch_img,"Sketch_img");
+        retrieveImage(process_img,"Process_img");
+        record.fields.Final_product_img.forEach(function(attachment){
+          let final_product_img = document.createElement('img');
+          final_product_img.setAttribute('src', attachment.url);
+          final_product_img.setAttribute( 'alt', "Final Project Image");
+          final_product_img.classList.add('dynamic_final_product_img');
+          final_product_img_div.appendChild(final_product_img);
+        });
     });
   }, function done(err) {
     if (err) { console.error(err); return; }
@@ -65,13 +79,14 @@ let fetchRecord = function(slug) {
 let makeNavigation = function() {
   let navigationContainer = document.querySelector('.dynamic_navigation');
 
-  base('Main').select({
+  base('Case_Study').select({
     view: "Grid view"
   }).eachPage(function page(records, fetchNextPage) {
     records.forEach(function(record) {
         let listItem = document.createElement('li');
         let anchor = document.createElement('a');
         listItem.classList.add('dropdown_item');
+        listItem.classList.add('type_body_2');
         anchor.classList.add('project_link');
         let link = 'case_study.html?' + record.fields.Slug;
 
@@ -87,6 +102,27 @@ let makeNavigation = function() {
   });
 }
 
+let fetchAboutPage = function(){
+  let bio = document.querySelector('.dynamic_bio');
+  let statement = document.querySelector('.dynamic_statement');
+  let CV_link = document.querySelector('.dynamic_CV');
+  let photo = document.querySelector('.dynamic_photo');
+
+  base('About_Page').select({
+    maxRecords: 1,
+    view: "Grid view"
+  }).eachPage(function page(records, fetchNextPage) {
+    records.forEach(function(record) {
+      bio.innerHTML=record.fields.Bio;
+      statement.innerHTML=record.fields.Statement;
+      CV_link.setAttribute('href', record.fields.CV[0].url);
+      photo.setAttribute('src', record.fields.Photo[0].url);
+    });
+  }, function done(err) {
+    if (err) { console.error(err); return; }
+  });
+}
+
 
 document.addEventListener('DOMContentLoaded', function (event) {
   // DOM Loaded!
@@ -94,7 +130,9 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
   let slug = searchParam.substring(1);
 
-  fetchRecord(slug);
+  fetchCaseStudy(slug);
 
-  makeNavigation()
+  makeNavigation();
+
+  fetchAboutPage();
 });
