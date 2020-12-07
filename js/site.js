@@ -25,6 +25,7 @@ let fetchCaseStudy = function(slug) {
   // images
   let cover_img = document.querySelector('.dynamic_cover_img');
   let project_img = document.querySelector('.dynamic_project_img');
+  let project_img_lightbox = document.querySelector('.dynamic_project_img_lightbox');
   let sketch_img = document.querySelector('.dynamic_sketch_img');
   let process_img = document.querySelector('.dynamic_process_img');
   let final_product_img_div = document.querySelector('.dynamic_final_product_img_container');
@@ -65,6 +66,7 @@ let fetchCaseStudy = function(slug) {
       // images
       retrieveImage(cover_img,"Cover_img");
       retrieveImage(project_img,"Project_img");
+      retrieveImage(project_img_lightbox,"Project_img");
       retrieveImage(sketch_img,"Sketch_img");
       retrieveImage(process_img,"Process_img");
       record.fields.Final_product_img.forEach(function(attachment){

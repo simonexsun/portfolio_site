@@ -10,15 +10,30 @@ a {
 .content {
     margin:0vw 20vw;
 }
+.scroll_content {
+    overflow: scroll;
+    padding-top: 2vh;
+}
 .section {
     padding:2vh 0;
-    margin: 2vh 0;
+    margin:2vh 0;
+}
+.header{    
+    position: fixed !important;  
+    min-width: 100vw;  
+    height: 2vh;
+    background-color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+    padding:4vh 0;
+}
+.header:hover {
+    background-color: rgb(255, 255, 255);
+    transition: 1s;
 }
 .section_heading {
     border-bottom: 1px solid;
     font-weight: 100;
 }
-
 .type_heading_1 {
     text-transform: uppercase;
     font-size: 3rem;
@@ -101,7 +116,7 @@ a {
 /* scroll symbol animation */
 .scroll_symbol_container {
     position: absolute;
-    bottom:4vh;
+    bottom:5vh;
     left:47vw;
     width: 30px;
     height: 20px;
@@ -164,8 +179,6 @@ a {
       transform: translateY(55px) scale3d(0.5, 0.5, 0.5);
     }
   }
-  
-  
 
 /* general layout */
 .parent {
@@ -243,6 +256,75 @@ a {
     text-shadow: 0.1px 0.1px 2px rgb(207, 54, 34);
     transition: .8s ease;
 }
+
+/* lightbox */
+.lightbox{
+    cursor: zoom-in;
+}
+.lightbox_section {
+    padding-top:10vh;
+}
+/* Styles the lightbox, removes it from sight and adds the fade-in transition */
+.lightbox_target {
+    position: fixed;
+    top: -100%;
+    width: 100%;
+    background: rgba(0,0,0,.7);
+    width: 100%;
+    opacity: 0;
+    -webkit-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    transition: opacity 1s;
+    overflow: hidden;
+    }
+    
+    /* Styles the lightbox image, centers it vertically and horizontally, adds the zoom-in transition and makes it responsive using a combination of margin and absolute positioning */
+    .lightbox_target img {
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left:0;
+    right:0;
+    bottom: 0;
+    max-height: 0%;
+    max-width: 0%;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.2);
+    box-sizing: border-box;
+    }
+    
+    /* Styles the close link, adds the slide down transition */
+    .lightbox_close {
+    display: block;
+    width:50px;
+    height:50px;
+    box-sizing: border-box;
+    border-radius:50%;
+    /* background: white; */
+    color: white;
+    text-decoration: none;
+    position: absolute;
+    right: 5px;
+    padding:10px;
+    }
+
+    /* Uses the :target pseudo-class to perform the animations upon clicking the .lightbox_target anchor */
+    .lightbox_target:target {
+    opacity: 1;
+    top: 0;
+    bottom: 0;
+    }
+    
+    .lightbox_target:target img {
+    max-height: 100%;
+    max-width: 100%;
+    }
+    
+    .lightbox_target:target .lightbox_close {
+    top: 0px;
+    }
+    
+    
 
 .copyright {
     text-align: center;
