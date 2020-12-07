@@ -80,21 +80,27 @@ let fetchCaseStudy = function(slug) {
   });
 }
 
+// slug is only defined on case studies, otherwise undefined
 let makeNavigation = function(slug) {
   let navigationContainer = document.querySelector('.dynamic_navigation');
-  let previousButton = document.querySelector('#previous');
-  let nextButton = document.querySelector('#next');
+
+
+  // returns URL
+  function caseStudyForRecord(record) {
+    return `case_study_${record.fields.Catagory}.html?${record.fields.Slug}`;
+  }
 
   base('Case_Study').select({
     view: "Active"
   }).eachPage(function page(records, fetchNextPage) {
+    // build list of of nav lis
     records.forEach(function(record) {
       let listItem = document.createElement('li');
       let anchor = document.createElement('a');
       listItem.classList.add('dropdown_item');
       listItem.classList.add('type_body_2');
       anchor.classList.add('project_link');
-      let link = 'case_study.html?' + record.fields.Slug;
+      let link = caseStudyForRecord(record);
 
       anchor.innerHTML = record.fields.Title;
       anchor.setAttribute('href', link);
@@ -102,30 +108,34 @@ let makeNavigation = function(slug) {
       listItem.appendChild(anchor);
       navigationContainer.appendChild(listItem);
 
-      slugList.push(record.fields.Slug);  
-      for (let i = 0; i < slugList.length; i++){
-        if (slug == slugList[i]){
-          previousButton.onclick = function(){
-            if(i > 0){
-              i = i-1;
-            }
-            else if(i == 0){
-              i = slugList.length-1;
-            }
-            window.location.href = "case_study.html?" +  slugList[i];
+      // slugList.push(record.fields.Slug);  
+    });
+    
+    // on case studies, do forward and back links
+    if (slug) {
+      const pos = records.findIndex(el => el.fields.Slug === slug);
+      if (pos !== -1) {
+        const previousButton = document.querySelector('#previous');
+        const nextButton = document.querySelector('#next');
+
+        previousButton.onclick = function() {
+          let prevPos = pos - 1;
+          if (prevPos < 0) {
+            prevPos = records.length - 1;
           }
-          nextButton.onclick = function(){
-            if(i < slugList.length-1){
-              i = i+1;
-            }
-            else if(i == slugList.length-1){
-              i = 0;
-            }
-            window.location.href = "case_study.html?" +  slugList[i];
+          window.location.href = caseStudyForRecord(records[prevPos]);
+        }
+
+        nextButton.onclick = function() {
+          let nextPos = pos + 1;
+          if (nextPos > records.length-1) {
+            nextPos =0;
           }
+          window.location.href = caseStudyForRecord(records[nextPos]);
         }
       }
-    });
+    }
+
   }, function done(err) {
     if (err) { console.error(err); return; }
   });
