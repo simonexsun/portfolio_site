@@ -36,6 +36,7 @@ let fetchCaseStudy = function(slug) {
     view: "Active"
   }).eachPage(function page(records, fetchNextPage) {
     records.forEach(function(record) {
+      //retrive text
       function retrieveText(object,fieldName){
         if (record.fields[fieldName] !== undefined){
           object.innerHTML=record.fields[fieldName];
@@ -43,11 +44,14 @@ let fetchCaseStudy = function(slug) {
         else{console.log(`${fieldName} is undefined.`);}
       }
 
+      //retrive images
       function retrieveImage(object,fieldName){
         if (record.fields[fieldName] !== undefined){
           object.setAttribute('src', record.fields[fieldName][0].thumbnails.full.url);
         }
-        else{console.log(`${fieldName} is undefined.`);}
+        else{  
+          object.setAttribute('src', record.fields.Placeholder_img[0].thumbnails.full.url);
+        }
       }
 
       console.log(`I am a ${record.fields.Catagory} project`);

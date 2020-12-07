@@ -75,6 +75,10 @@
     background: rgb(63, 63, 63);
 }
 
+.about_scroll_content {
+    padding-top: 15vh;
+}
+
 .dynamic_photo {
     width: 70%;
     padding-left:8vw;
