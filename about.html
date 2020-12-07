@@ -80,6 +80,15 @@
     </section>
     <script src="js/airtable.browser.js" type="text/javascript"></script>
     <script src="js/site.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function (event) {
+            let searchParam = document.location.search;
+            let slug = searchParam.substring(1);
+
+            makeNavigation(slug);
+            fetchAboutPage();
+        });
+    </script>
 </body>
 
 </html>

@@ -31,8 +31,8 @@ let fetchCaseStudy = function(slug) {
 
   base('Case_Study').select({
     filterByFormula: formula,
-    maxRecords: 1,
-    view: "Grid view"
+    maxRecords: 1
+    // view: "CD"
   }).eachPage(function page(records, fetchNextPage) {
     records.forEach(function(record) {
       function retrieveText(object,fieldName){
@@ -84,7 +84,7 @@ let makeNavigation = function(slug) {
   let nextButton = document.querySelector('#next');
 
   base('Case_Study').select({
-    view: "Grid view"
+    // view: "CD"
   }).eachPage(function page(records, fetchNextPage) {
     records.forEach(function(record) {
       let listItem = document.createElement('li');
@@ -154,14 +154,3 @@ let fetchAboutPage = function(){
   });
 }
 
-
-document.addEventListener('DOMContentLoaded', function (event) {
-  // DOM Loaded!
-  let searchParam = document.location.search;
-
-  let slug = searchParam.substring(1);
-
-  fetchCaseStudy(slug);
-  makeNavigation(slug);
-  fetchAboutPage();
-});
