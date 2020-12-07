@@ -35,6 +35,7 @@
 
 .dynamic_cover_img {
     position: absolute;
+    object-fit: cover;
     height: 90vh;
     width:100vw;
     top:10vh;
