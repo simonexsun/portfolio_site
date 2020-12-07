@@ -31,8 +31,8 @@ let fetchCaseStudy = function(slug) {
 
   base('Case_Study').select({
     filterByFormula: formula,
-    maxRecords: 1
-    // view: "CD"
+    maxRecords: 1,
+    view: "Active"
   }).eachPage(function page(records, fetchNextPage) {
     records.forEach(function(record) {
       function retrieveText(object,fieldName){
@@ -48,6 +48,8 @@ let fetchCaseStudy = function(slug) {
         }
         else{console.log(`${fieldName} is undefined.`);}
       }
+
+      console.log(`I am a ${record.fields.Catagory} project`);
       
       // text
       retrieveText(title,"Title");
@@ -84,7 +86,7 @@ let makeNavigation = function(slug) {
   let nextButton = document.querySelector('#next');
 
   base('Case_Study').select({
-    // view: "CD"
+    view: "Active"
   }).eachPage(function page(records, fetchNextPage) {
     records.forEach(function(record) {
       let listItem = document.createElement('li');
@@ -121,12 +123,8 @@ let makeNavigation = function(slug) {
             }
             window.location.href = "case_study.html?" +  slugList[i];
           }
-          console.log("location now is ", slugList[i], i);
         }
       }
-
-      
-
     });
   }, function done(err) {
     if (err) { console.error(err); return; }
