@@ -270,17 +270,18 @@ a {
     top: -100%;
     width: 100%;
     background: rgba(0,0,0,.7);
-    width: 100%;
     opacity: 0;
     -webkit-transition: opacity 1s;
     -moz-transition: opacity 1s;
     -o-transition: opacity 1s;
     transition: opacity 1s;
     overflow: hidden;
-    }
+}
     
-    /* Styles the lightbox image, centers it vertically and horizontally, adds the zoom-in transition and makes it responsive using a combination of margin and absolute positioning */
-    .lightbox_target img {
+/* Styles the lightbox image, centers it vertically and horizontally, 
+        adds the zoom-in transition and 
+        makes it responsive using a combination of margin and absolute positioning */
+.lightbox_target img {
     margin: auto;
     position: absolute;
     top: 0;
@@ -291,41 +292,131 @@ a {
     max-width: 0%;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.2);
     box-sizing: border-box;
-    }
+}
     
-    /* Styles the close link, adds the slide down transition */
-    .lightbox_close {
+/* Styles the close link, adds the slide down transition */
+.lightbox_close {
     display: block;
     width:50px;
     height:50px;
     box-sizing: border-box;
     border-radius:50%;
-    /* background: white; */
     color: white;
     text-decoration: none;
     position: absolute;
     right: 5px;
     padding:10px;
-    }
+}
 
-    /* Uses the :target pseudo-class to perform the animations upon clicking the .lightbox_target anchor */
-    .lightbox_target:target {
+/* Uses the :target pseudo-class to 
+    perform the animations upon clicking the .lightbox_target anchor */
+.lightbox_target:target {
     opacity: 1;
     top: 0;
     bottom: 0;
-    }
+}
     
-    .lightbox_target:target img {
+.lightbox_target:target img {
     max-height: 100%;
     max-width: 100%;
-    }
+}
     
-    .lightbox_target:target .lightbox_close {
+.lightbox_target:target .lightbox_close {
     top: 0px;
-    }
-    
-    
+}
+  
+/*Image gallery*/
 
+.gallery {
+    position: relative;
+    top: -100vh;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255,255,255,.7);
+    opacity: 0;
+    -webkit-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    transition: opacity 1s;
+    overflow: hidden;
+    display:none;
+}
+.gallery_container {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    margin:10vw;
+}
+.gallery_item {
+    position: relative;
+    overflow: hidden;
+  }
+  
+.gallery_item img {   
+    vertical-align: middle; 
+    top: 0;
+    left:0;
+    right:0;
+    bottom: 0;
+    max-height: 0%;
+    max-width: 0%;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.2);
+    box-sizing: border-box;
+  }
+  
+.caption {
+    margin: 0;
+    padding: 1em;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-height: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+    transition: transform 0.5s;
+    transform: translateY(100%);
+    background: rgba(0, 0, 0, 0.7);
+    color: rgb(255, 255, 255);
+    font-weight: 100;
+    z-index: 1;
+}
+  
+.gallery_item:hover .caption {
+    transform: translateY(0%);
+}
+.gallery:target {
+    display: block;
+    opacity: 1;
+    top: 0;
+    bottom: 0;
+    transition: 2s ease;
+}
+.gallery:target .gallery_item img{
+    max-height: 100%;
+    max-width: 100%;
+}
+/* Styles the close link, adds the slide down transition */
+.gallery_close {
+    display: block;
+    width:50px;
+    height:50px;
+    box-sizing: border-box;
+    border-radius:50%;
+    color: black;
+    text-decoration: none;
+    position: fixed;
+    top:-100vh;
+    right: 5px;
+    padding:10px;
+    z-index: 2;
+}
+.gallery:target .gallery_close {
+    top: 0;
+}
+
+
+/* footer  */
 .copyright {
     text-align: center;
 }

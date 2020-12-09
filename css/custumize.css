@@ -85,6 +85,7 @@
 }
 
 .home_content {
-    position: absolute;
+    position: fixed;
     bottom:20vh;
+
 }
