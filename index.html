@@ -36,19 +36,24 @@
         <section class="section">
             <p class="type_heading_2">
                 Simone Sun is a
-                <a class="type_link" title="Jump to design and technology projects preview" href="#gallery">
+                <a class="type_link" title="Jump to design and technology projects preview" href="#CD_gallery">
                     creative technologist</a> and
-                <a class="type_link" title="Jump to communication design projects preview" href="#">
+                <a class="type_link" title="Jump to communication design projects preview" href="#DT_gallery">
                     communication designer</a>.
             </p>
         </section>
     </div>
 
-    <section class="section gallery" id="gallery">
-        <a class="gallery_close" title="Close Gallery View" href="#"><i class="far fa-times-circle fa-2x"></i></a>
-        <div class="gallery_container">
+    <div>
+        <div class="gallery" id="CD_gallery">
+            <a class="gallery_close" title="Close Gallery View" href="#"><i class="far fa-times-circle fa-2x"></i></a>
+            <div class="gallery_container" id="CD_gallery_container"></div>
         </div>
-    </section>
+        <div class="gallery" id="DT_gallery">
+            <a class="gallery_close" title="Close Gallery View" href="#"><i class="far fa-times-circle fa-2x"></i></a>
+            <div class="gallery_container" id="DT_gallery_container"></div>
+        </div>
+    </div>
 
     <script src="js/airtable.browser.js" type="text/javascript"></script>
     <script src="js/site.js"></script>
@@ -57,8 +62,9 @@
             let searchParam = document.location.search;
             let slug = searchParam.substring(1);
 
-            makeNavigation(slug);
-            makeGallery(slug);
+            makeNavigation();
+            makeGallery("#CD_gallery_container", "CD");
+            makeGallery("#DT_gallery_container", "DT");
         });
     </script>
 </body>

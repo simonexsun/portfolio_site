@@ -142,8 +142,14 @@ let makeNavigation = function(slug) {
   });
 };
 
-function makeGallery(){
-  let gallery = document.querySelector('.gallery_container');
+/**
+ * ....makeGallery("#CD_gallery_container", "CD")
+ * 
+ * @param {string} gallerySelector 
+ * @param {string} airtableViewName
+ */
+function makeGallery(gallerySelector, airtableViewName) {
+  const gallery = document.querySelector(gallerySelector);
 
   // returns URL
   function caseStudyForRecord(record) {
@@ -151,7 +157,7 @@ function makeGallery(){
   }
 
   base('Case_Study').select({
-    view: "Active"
+    view: airtableViewName
   }).eachPage(function page(records, fetchNextPage) {
     records.forEach(function(record) {
 
@@ -175,7 +181,6 @@ function makeGallery(){
     });
   });
 }
-
 
 let fetchAboutPage = function(){
   let bio = document.querySelector('.dynamic_bio');
