@@ -53,13 +53,19 @@
     overflow: scroll;
     overflow-y: hidden; 
 }
+#CD {
+    height: 500px;
+}
+#DT{
+    height: 300px;
+}
     
 .dynamic_final_product_img {
     scroll-snap-align: start; 
-    height: 300px;
-    width: auto;
+    max-width: 100%;
     padding: 20px 50px 20px 0;
 }
+
 /* custermized scrollbar */
 .dynamic_final_product_img_container::-webkit-scrollbar {
     height: 8px;

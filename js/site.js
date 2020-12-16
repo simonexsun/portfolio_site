@@ -35,26 +35,24 @@ let fetchCaseStudy = function(slug) {
     view: "Active"
   }).eachPage(function page(records, fetchNextPage) {
     records.forEach(function(record) {
-      //retrive text
+      //retrive & fill text function
       function retrieveText(object,fieldName){
-        if (record.fields[fieldName] !== undefined){
+        if (record.fields[fieldName] !== undefined && object!== null){
           object.innerHTML=record.fields[fieldName];
         }
-        else{console.log(`${fieldName} is undefined.`);}
+        else{console.log(`${fieldName} is undefined.`)}
       }
 
-      //retrive images
+      //retrive & fill images function
       function retrieveImage(object,fieldName){
-        if (record.fields[fieldName] !== undefined){
+        if (record.fields[fieldName] !== undefined && object!== null){
           object.setAttribute('src', record.fields[fieldName][0].thumbnails.full.url);
         }
-        else{  
+        else if (object !== null){  
           object.setAttribute('src', record.fields.Placeholder_img[0].thumbnails.full.url);
         }
       }
 
-      console.log(`I am a ${record.fields.Catagory} project`);
-      
       // text
       retrieveText(title,"Title");
       retrieveText(subtitle,"Subtitle");
@@ -78,6 +76,8 @@ let fetchCaseStudy = function(slug) {
         final_product_img.setAttribute( 'alt', "Final Project Image");
         final_product_img.classList.add('dynamic_final_product_img');
         final_product_img_div.appendChild(final_product_img);
+        let view_name = location.pathname.substr(12,2);
+        final_product_img.setAttribute("id", view_name);
       });
     });
   }, function done(err) {

@@ -49,43 +49,31 @@
             <img class="dynamic_cover_img" alt="Project Cover Image">
         </div>
 
-        <div class="y_slider content">
-            <section class="snap section lightbox_section" id="about">
-                <div class="parent">
-                    <div class="left_column">
-                        <h3 class="type_heading_3">About</h3>
-                        <p class="type_body_1 dynamic_description"></p>
-                    </div>
-                    <div class="right_column">
-                        <a class="lightbox" title="view image in lightbox" href="#project_img_lightbox">
-                            <img class="dynamic_project_img" alt="Porject Image" width="100%">
-                        </a>
-                    </div>
-                </div>
-            </section>
-
+        <div class="y_slider">
             <section class="snap section">
-                <h3 class="type_heading_3 description_title">Concept Development</h3>
-                <p class="description_content dynamic_concept"></p>
-                <div><img class="dynamic_sketch_img" alt="Sketch Image" width="100%"></div>
-            </section>
-
-            <section class="snap section">
-                <h3 class="type_heading_3 description_title">Fabricating</h3>
-                <p class="description_content dynamic_fabricating"></p>
-                <div><img class="dynamic_process_img" alt="Process Image" width="100%"></div>
-            </section>
-
-            <section class="snap section">
-                <h3 class="type_heading_3 description_title">Final Product</h3>
-                <p class="description_content dynamic_summary"></p>
                 <div class="dynamic_final_product_img_container x_slider"></div>
             </section>
 
-            <section class="snap section">
-                <h3 class="type_heading_3 description_title">Reflecting on the Project</h3>
-                <p class="description_content dynamic_reflection"></p>
-            </section>
+            <div class="content">
+                <section class="snap section">
+                    <h3 class="type_heading_3">Project Description & Design Process</h3>
+
+                    <input type="checkbox" class="read_more_state" id="description_and_process" />
+                    <div class="read_more_wrap">
+                        <div class="read_more_target">
+                            <p class="type_body_1 dynamic_description"></p>
+                            <p class="description_content dynamic_fabricating"></p>
+                            <p class="description_content dynamic_summary"></p>
+                        </div>
+                    </div>
+
+                    <label for="description_and_process" class="read_more_trigger"></label>
+
+                    <p class="type_body_1 dynamic_description"></p>
+                    <p class="description_content dynamic_fabricating"></p>
+                    <p class="description_content dynamic_summary"></p>
+                </section>
+            </div>
         </div>
     </div>
 
