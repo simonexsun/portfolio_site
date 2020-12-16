@@ -81,7 +81,7 @@ let fetchCaseStudy = function(slug) {
         let pos = url.lastIndexOf("case_study_");
         let index_length="case_study_".length;
         let view_name = location.pathname.substr(pos+index_length,2);
-        console.log(view_name);
+        console.log(`view name is: [${view_name}]`);
         final_product_img.setAttribute("id", view_name);
       });
     });
