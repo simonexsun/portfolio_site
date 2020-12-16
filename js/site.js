@@ -170,13 +170,16 @@ function makeGallery(gallerySelector, airtableViewName) {
       let link = caseStudyForRecord(record);
       let img_anchor = document.createElement('a');
       img_anchor.classList.add('project_link');
-      img_anchor.classList.add('caption');
-      img_anchor.innerHTML = record.fields.Title;
       img_anchor.setAttribute('href', link);
 
+      let caption=document.createElement('p');
+      caption.classList.add('caption');
+      caption.innerHTML = record.fields.Title;
+
       gallery_item.appendChild(gallery_img);
-      gallery_item.appendChild(img_anchor);
-      gallery.appendChild(gallery_item);
+      gallery_item.appendChild(caption);
+      img_anchor.appendChild(gallery_item);
+      gallery.appendChild(img_anchor);
 
     });
   });
