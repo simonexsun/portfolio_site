@@ -1,8 +1,8 @@
 let Airtable = require('airtable');
 
-let base = new Airtable({apiKey: 'keyfpZwKVsD8rJeMF'}).base('appEix67CO2YQY2rP');
+let base = new Airtable({ apiKey: 'keyfpZwKVsD8rJeMF' }).base('appEix67CO2YQY2rP');
 
-let fetchCaseStudy = function(slug) {
+let fetchCaseStudy = function (slug) {
 
   if (!slug) {
     console.log('No slug provided, cancelling API call');
@@ -34,53 +34,53 @@ let fetchCaseStudy = function(slug) {
     maxRecords: 1,
     view: "Active"
   }).eachPage(function page(records, fetchNextPage) {
-    records.forEach(function(record) {
+    records.forEach(function (record) {
       //retrive & fill text function
-      function retrieveText(object,fieldName){
-        if (record.fields[fieldName] !== undefined && object!== null){
-          object.innerHTML=record.fields[fieldName];
+      function retrieveText(object, fieldName) {
+        if (record.fields[fieldName] !== undefined && object !== null) {
+          object.innerHTML = record.fields[fieldName];
         }
-        else{console.log(`${fieldName} is undefined.`)}
+        else { console.log(`${fieldName} is undefined.`) }
       }
 
       //retrive & fill images function
-      function retrieveImage(object,fieldName){
-        if (record.fields[fieldName] !== undefined && object!== null){
+      function retrieveImage(object, fieldName) {
+        if (record.fields[fieldName] !== undefined && object !== null) {
           object.setAttribute('src', record.fields[fieldName][0].thumbnails.full.url);
         }
-        else if (object !== null){  
+        else if (object !== null) {
           object.setAttribute('src', record.fields.Placeholder_img[0].thumbnails.full.url);
         }
       }
 
       // text
-      retrieveText(title,"Title");
-      retrieveText(subtitle,"Subtitle");
-      retrieveText(institution,"Institution");
-      created_year.innerHTML = new Date (record.fields.Created_date).getFullYear();//convret Date to year
-      retrieveText(description,"Description");
-      retrieveText(concept,"Concept");
-      retrieveText(fabricating,"Fabricating");
-      retrieveText(summary,"Summary");
-      retrieveText(reflection,"Reflection");
+      retrieveText(title, "Title");
+      retrieveText(subtitle, "Subtitle");
+      retrieveText(institution, "Institution");
+      created_year.innerHTML = new Date(record.fields.Created_date).getFullYear();//convret Date to year
+      retrieveText(description, "Description");
+      retrieveText(concept, "Concept");
+      retrieveText(fabricating, "Fabricating");
+      retrieveText(summary, "Summary");
+      retrieveText(reflection, "Reflection");
 
       // images
-      retrieveImage(cover_img,"Cover_img");
-      retrieveImage(project_img,"Project_img");
-      retrieveImage(project_img_lightbox,"Project_img");
-      retrieveImage(sketch_img,"Sketch_img");
-      retrieveImage(process_img,"Process_img");
-      record.fields.Final_product_img.forEach(function(attachment){
+      retrieveImage(cover_img, "Cover_img");
+      retrieveImage(project_img, "Project_img");
+      retrieveImage(project_img_lightbox, "Project_img");
+      retrieveImage(sketch_img, "Sketch_img");
+      retrieveImage(process_img, "Process_img");
+      record.fields.Final_product_img.forEach(function (attachment) {
         let final_product_img = document.createElement('img');
         final_product_img.setAttribute('src', attachment.url);
-        final_product_img.setAttribute( 'alt', "Final Project Image");
+        final_product_img.setAttribute('alt', "Final Project Image");
         final_product_img.classList.add('dynamic_final_product_img');
         final_product_img_div.appendChild(final_product_img);
 
-        let url=location.pathname;
+        let url = location.pathname;
         let pos = url.lastIndexOf("case_study_");
-        let index_length="case_study_".length;
-        let view_name = location.pathname.substr(pos+index_length,2);
+        let index_length = "case_study_".length;
+        let view_name = location.pathname.substr(pos + index_length, 2);
         console.log(`view name is: [${view_name}]`);
         final_product_img.setAttribute("id", view_name);
       });
@@ -91,7 +91,7 @@ let fetchCaseStudy = function(slug) {
 };
 
 // slug is only defined on case studies, otherwise undefined
-let makeNavigation = function(slug) {
+let makeNavigation = function (slug) {
   let navigationContainer = document.querySelector('.dynamic_navigation');
 
   // returns URL
@@ -100,9 +100,9 @@ let makeNavigation = function(slug) {
   }
 
   base('Case_Study').select({
-    view: "Active"
+    view: "Main"
   }).eachPage(function page(records, fetchNextPage) {
-    records.forEach(function(record) {
+    records.forEach(function (record) {
       let list_item = document.createElement('li');
       let anchor = document.createElement('a');
       list_item.classList.add('dropdown_item');
@@ -116,7 +116,7 @@ let makeNavigation = function(slug) {
       list_item.appendChild(anchor);
       navigationContainer.appendChild(list_item);
     });
-    
+
     // on case studies, do forward and back links
     if (slug) {
       const pos = records.findIndex(el => el.fields.Slug === slug);
@@ -124,7 +124,7 @@ let makeNavigation = function(slug) {
         const previousButton = document.querySelector('#previous');
         const nextButton = document.querySelector('#next');
 
-        previousButton.onclick = function() {
+        previousButton.onclick = function () {
           let prevPos = pos - 1;
           if (prevPos < 0) {
             prevPos = records.length - 1;
@@ -132,10 +132,10 @@ let makeNavigation = function(slug) {
           window.location.href = caseStudyForRecord(records[prevPos]);
         }
 
-        nextButton.onclick = function() {
+        nextButton.onclick = function () {
           let nextPos = pos + 1;
-          if (nextPos > records.length-1) {
-            nextPos =0;
+          if (nextPos > records.length - 1) {
+            nextPos = 0;
           }
           window.location.href = caseStudyForRecord(records[nextPos]);
         }
@@ -164,12 +164,12 @@ function makeGallery(gallerySelector, airtableViewName) {
   base('Case_Study').select({
     view: airtableViewName
   }).eachPage(function page(records, fetchNextPage) {
-    records.forEach(function(record) {
+    records.forEach(function (record) {
 
       let gallery_item = document.createElement('div');
       gallery_item.classList.add('gallery_item');
 
-      let gallery_img= document.createElement('img');
+      let gallery_img = document.createElement('img');
       gallery_img.setAttribute('src', record.fields.Cover_img[0].thumbnails.large.url);
 
       let link = caseStudyForRecord(record);
@@ -177,7 +177,7 @@ function makeGallery(gallerySelector, airtableViewName) {
       img_anchor.classList.add('project_link');
       img_anchor.setAttribute('href', link);
 
-      let caption=document.createElement('p');
+      let caption = document.createElement('p');
       caption.classList.add('caption');
       caption.innerHTML = record.fields.Title;
 
@@ -190,7 +190,7 @@ function makeGallery(gallerySelector, airtableViewName) {
   });
 }
 
-let fetchAboutPage = function(){
+let fetchAboutPage = function () {
   let bio = document.querySelector('.dynamic_bio');
   let statement = document.querySelector('.dynamic_statement');
   let CV_link = document.querySelector('.dynamic_CV');
@@ -200,9 +200,9 @@ let fetchAboutPage = function(){
     maxRecords: 1,
     view: "Grid view"
   }).eachPage(function page(records, fetchNextPage) {
-    records.forEach(function(record) {
-      bio.innerHTML=record.fields.Bio;
-      statement.innerHTML=record.fields.Statement;
+    records.forEach(function (record) {
+      bio.innerHTML = record.fields.Bio;
+      statement.innerHTML = record.fields.Statement;
       CV_link.setAttribute('href', record.fields.CV[0].url);
       photo.setAttribute('src', record.fields.Photo[0].url);
     });
