@@ -90,8 +90,8 @@ let fetchCaseStudy = function (slug) {
   });
 };
 
-// slug is only defined on case studies, otherwise undefined
-let makeNavigation = function (slug) {
+// dynamic navigation setup
+let makeNavigation = function (slug) { // slug is only defined on case studies, otherwise undefined
   let navigationContainer = document.querySelector('.dynamic_navigation');
 
   // returns URL
@@ -100,9 +100,10 @@ let makeNavigation = function (slug) {
   }
 
   base('Case_Study').select({
-    view: "Main"
+    view: "Representative"
   }).eachPage(function page(records, fetchNextPage) {
     records.forEach(function (record) {
+      // Add representative work links to drop down menu
       let list_item = document.createElement('li');
       let anchor = document.createElement('a');
       list_item.classList.add('dropdown_item');
@@ -141,6 +142,20 @@ let makeNavigation = function (slug) {
         }
       }
     }
+
+    // Add "All Works" link to drop down menu
+    let list_item = document.createElement('li');
+    let anchor = document.createElement('a');
+    list_item.classList.add('dropdown_item');
+    list_item.classList.add('type_body_2');
+    anchor.classList.add('project_link');
+    let link = 'all_works.html';
+
+    anchor.innerHTML = 'All Works';
+    anchor.setAttribute('href', link);
+
+    list_item.appendChild(anchor);
+    navigationContainer.appendChild(list_item);
 
   }, function done(err) {
     if (err) { console.error(err); return; }
