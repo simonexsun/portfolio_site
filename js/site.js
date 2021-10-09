@@ -125,19 +125,22 @@ let makeNavigation = function (slug) { // slug is only defined on case studies, 
         const previousButton = document.querySelector('#previous');
         const nextButton = document.querySelector('#next');
 
+        // hide prev/next button if it's the first/last case study
+        if (pos - 1 < 0) {
+          previousButton.style.display = 'none';
+        }
+        if (pos + 1 > records.length - 1) {
+          nextButton.style.display = 'none';
+        }
+
+        // deploy links for prev/next buttons
         previousButton.onclick = function () {
           let prevPos = pos - 1;
-          if (prevPos < 0) {
-            prevPos = records.length - 1;
-          }
           window.location.href = caseStudyForRecord(records[prevPos]);
         }
 
         nextButton.onclick = function () {
           let nextPos = pos + 1;
-          if (nextPos > records.length - 1) {
-            nextPos = 0;
-          }
           window.location.href = caseStudyForRecord(records[nextPos]);
         }
       }
@@ -149,7 +152,7 @@ let makeNavigation = function (slug) { // slug is only defined on case studies, 
     list_item.classList.add('dropdown_item');
     list_item.classList.add('type_body_2');
     anchor.classList.add('project_link');
-    let link = 'works_index.html';
+    let link = 'project_index.html';
 
     anchor.innerHTML = 'All Works';
     anchor.setAttribute('href', link);
