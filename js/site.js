@@ -166,13 +166,18 @@ let makeNavigation = function (slug) { // slug is only defined on case studies, 
 };
 
 /**
- * ....makeGallery("#CD_gallery_container", "CD")
+ * ....makeGallery("Typography")
  * 
- * @param {string} gallerySelector 
  * @param {string} airtableViewName
  */
-function makeGallery(gallerySelector, airtableViewName) {
-  const gallery = document.querySelector(gallerySelector);
+function makeGallery(airtableViewName) {
+  const gallery = document.querySelector('.gallery_container');
+  while (gallery.firstChild) {
+    gallery.removeChild(gallery.firstChild);
+  }
+
+  let catagory_title = document.querySelector('#catagory_title');
+  catagory_title.innerHTML = airtableViewName + ' Projects';
 
   // returns URL
   function caseStudyForRecord(record) {

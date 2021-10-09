@@ -35,16 +35,62 @@
         <div class="scroll_content">
             <div class="y_slider content">
                 <section class="section">
-                    <h3 class="type_heading_3 catagory_title">
-                        All Works <span class="type_body_2" id="project_number">(12)</span>
+                    <h3 class="type_heading_3" id="catagory_title">
+                        All Projects <span class="type_body_2" id="project_number"></span>
                     </h3>
                     <p class="type_body_3">Filter +</p>
-                    <a class="type_link" title="Jump to design and technology projects preview" href="#CD_gallery">
-                        Typography
-                    </a>
+                    <p class="type_link" onclick="makeGallery('All')">All Works</p>
 
-                    <div class="gallery" id="CD_gallery">
-                        <div class="gallery_container" id="CD_gallery_container"></div>
+                    <div class="parent">
+                        <div class="left_column">
+                            <div class="type_body_1">
+                                Year
+                            </div>
+                            <ul>
+                                <li class="type_link">
+                                    2021
+                                </li>
+                                <li class="type_link">
+                                    2020
+                                </li>
+                                <li class="type_link">
+                                    2019
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="right_column">
+                            <div class="type_body_1">
+                                Media
+                            </div>
+                            <ul>
+                                <li class="type_link" onclick="makeGallery('Physical Computing')">
+                                    Physical Computing
+                                </li>
+                                <li class="type_link" onclick="makeGallery('Machine Learning')">
+                                    Machine Learning
+                                </li>
+                                <li class="type_link" onclick="makeGallery('Game')">
+                                    Game
+                                </li>
+                                <li class="type_link" onclick="makeGallery('Immersive Experience')">
+                                    Immersive Experience
+                                </li>
+                                <li class="type_link" onclick="makeGallery('Web')">
+                                    Web
+                                </li>
+                                <li class="type_link" onclick="makeGallery('Mobile')">
+                                    Mobile
+                                </li>
+                                <li class="type_link" onclick="makeGallery('Typography')">
+                                    Typography
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="gallery">
+                        <div class="gallery_container"></div>
                     </div>
 
                 </section>
@@ -65,7 +111,7 @@
             let slug = searchParam.substring(1);
 
             makeNavigation();
-            makeGallery("#CD_gallery_container", "CD");
+            makeGallery("All");
         });
     </script>
 </body>

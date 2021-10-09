@@ -10,6 +10,9 @@ a {
     text-decoration: none;
     color:black;
 }
+ul {
+    list-style-type: none;
+}
 .y_slider {
     padding-top:4vh;
 }
@@ -406,10 +409,6 @@ a {
   
 .gallery_item:hover .caption {
     transform: translateY(0%);
-}
-
-.catagory_title {
-    margin-top: 10%;
 }
 
 
