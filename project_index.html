@@ -34,43 +34,20 @@
     <section>
         <div class="scroll_content">
             <div class="y_slider content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nihil enim arbitror esse
-                magna laude dignum, quod te
-                praetermissurum credam aut mortis aut doloris metu. Quam illa ardentis amores excitaret sui! Cur tandem?
+                <section class="section">
+                    <h3 class="type_heading_3 catagory_title">
+                        All Works <span class="type_body_2" id="project_number">(12)</span>
+                    </h3>
+                    <p class="type_body_3">Filter +</p>
+                    <a class="type_link" title="Jump to design and technology projects preview" href="#CD_gallery">
+                        Typography
+                    </a>
 
-                Huius, Lyco, oratione locuples, rebus ipsis ielunior. Iam id ipsum absurdum, maximum malum neglegi.
-                Minime
-                vero, inquit
-                ille, consentit. Quod non faceret, si in voluptate summum bonum poneret. Duo Reges: constructio
-                interrete.
-                Nondum autem
-                explanatum satis, erat, quid maxime natura vellet.
+                    <div class="gallery" id="CD_gallery">
+                        <div class="gallery_container" id="CD_gallery_container"></div>
+                    </div>
 
-                Et hanc quidem primam exigam a te operam, ut audias me quae a te dicta sunt refellentem. Nulla profecto
-                est,
-                quin suam
-                vim retineat a primo ad extremum. An ea, quae per vinitorem antea consequebatur, per se ipsa curabit?
-                Quae
-                diligentissime contra Aristonem dicuntur a Chryippo.
-                <br>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nihil enim arbitror esse
-                magna laude dignum, quod te
-                praetermissurum credam aut mortis aut doloris metu. Quam illa ardentis amores excitaret sui! Cur tandem?
-
-                Huius, Lyco, oratione locuples, rebus ipsis ielunior. Iam id ipsum absurdum, maximum malum neglegi.
-                Minime
-                vero, inquit
-                ille, consentit. Quod non faceret, si in voluptate summum bonum poneret. Duo Reges: constructio
-                interrete.
-                Nondum autem
-                explanatum satis, erat, quid maxime natura vellet.
-
-                Et hanc quidem primam exigam a te operam, ut audias me quae a te dicta sunt refellentem. Nulla profecto
-                est,
-                quin suam
-                vim retineat a primo ad extremum. An ea, quae per vinitorem antea consequebatur, per se ipsa curabit?
-                Quae
-                diligentissime contra Aristonem dicuntur a Chryippo.
+                </section>
             </div>
         </div>
     </section>
@@ -88,6 +65,7 @@
             let slug = searchParam.substring(1);
 
             makeNavigation();
+            makeGallery("#CD_gallery_container", "CD");
         });
     </script>
 </body>
