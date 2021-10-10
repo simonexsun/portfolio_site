@@ -106,8 +106,8 @@ let makeNavigation = function (slug) { // slug is only defined on case studies, 
       // Add representative work links to drop down menu
       let list_item = document.createElement('li');
       let anchor = document.createElement('a');
-      list_item.classList.add('dropdown_item');
-      list_item.classList.add('type_body_2');
+      anchor.classList.add('dropdown_item');
+      anchor.classList.add('type_body_2');
       anchor.classList.add('project_link');
       let link = caseStudyForRecord(record);
 
@@ -149,8 +149,8 @@ let makeNavigation = function (slug) { // slug is only defined on case studies, 
     // Add "All Works" link to drop down menu
     let list_item = document.createElement('li');
     let anchor = document.createElement('a');
-    list_item.classList.add('dropdown_item');
-    list_item.classList.add('type_body_2');
+    anchor.classList.add('dropdown_item');
+    anchor.classList.add('type_body_2');
     anchor.classList.add('project_link');
     let link = 'project_index.html';
 
