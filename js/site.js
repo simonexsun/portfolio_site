@@ -32,7 +32,7 @@ let fetchCaseStudy = function (slug) {
   base('Case_Study').select({
     filterByFormula: formula,
     maxRecords: 1,
-    view: "Active"
+    view: "All"
   }).eachPage(function page(records, fetchNextPage) {
     records.forEach(function (record) {
       //retrive & fill text function
@@ -96,7 +96,7 @@ let makeNavigation = function (slug) { // slug is only defined on case studies, 
 
   // returns URL
   function caseStudyForRecord(record) {
-    return `case_study_${record.fields.Catagory}.html?${record.fields.Slug}`;
+    return `case_study_${record.fields.Case_study_model}.html?${record.fields.Slug}`;
   }
 
   base('Case_Study').select({
@@ -181,7 +181,7 @@ function makeGallery(airtableViewName) {
 
   // returns URL
   function caseStudyForRecord(record) {
-    return `case_study_${record.fields.Catagory}.html?${record.fields.Slug}`;
+    return `case_study_${record.fields.Case_study_model}.html?${record.fields.Slug}`;
   }
 
   base('Case_Study').select({
