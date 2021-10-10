@@ -38,54 +38,62 @@
                     <h3 class="type_heading_3" id="category_title">
                         All Projects
                     </h3>
-                    <p class="type_body_3">Filter +</p>
-                    <p class="type_link" onclick="makeGallery('All')">All Works</p>
 
-                    <div class="parent">
-                        <div class="left_column">
-                            <div class="type_body_1">
-                                Year
-                            </div>
-                            <ul>
-                                <li class="type_link">
-                                    2021
-                                </li>
-                                <li class="type_link">
-                                    2020
-                                </li>
-                                <li class="type_link">
-                                    2019
-                                </li>
-                            </ul>
-                        </div>
+                    <input type="checkbox" class="filter_expand_state" id="filter">
+                    <label for="filter" class="filter_expand_trigger"></label>
+                    <div class="filter_expand_wrap">
+                        <div class="filter_expand_target">
 
-                        <div class="right_column">
-                            <div class="type_body_1">
-                                Media
+                            <p class="type_link" onclick="makeGallery('All')">All Works</p>
+
+                            <div class="parent">
+                                <div class="left_column">
+                                    <div class="type_body_1">
+                                        Year
+                                    </div>
+                                    <ul>
+                                        <li class="type_link">
+                                            2021
+                                        </li>
+                                        <li class="type_link">
+                                            2020
+                                        </li>
+                                        <li class="type_link">
+                                            2019
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="right_column">
+                                    <div class="type_body_1">
+                                        Media
+                                    </div>
+                                    <ul>
+                                        <li class="type_link" onclick="makeGallery('Physical Computing')">
+                                            Physical Computing
+                                        </li>
+                                        <li class="type_link" onclick="makeGallery('Machine Learning')">
+                                            Machine Learning
+                                        </li>
+                                        <li class="type_link" onclick="makeGallery('Game')">
+                                            Game
+                                        </li>
+                                        <li class="type_link" onclick="makeGallery('Immersive Experience')">
+                                            Immersive Experience
+                                        </li>
+                                        <li class="type_link" onclick="makeGallery('Web')">
+                                            Web
+                                        </li>
+                                        <li class="type_link" onclick="makeGallery('Mobile')">
+                                            Mobile
+                                        </li>
+                                        <li class="type_link" onclick="makeGallery('Typography')">
+                                            Typography
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                            <ul>
-                                <li class="type_link" onclick="makeGallery('Physical Computing')">
-                                    Physical Computing
-                                </li>
-                                <li class="type_link" onclick="makeGallery('Machine Learning')">
-                                    Machine Learning
-                                </li>
-                                <li class="type_link" onclick="makeGallery('Game')">
-                                    Game
-                                </li>
-                                <li class="type_link" onclick="makeGallery('Immersive Experience')">
-                                    Immersive Experience
-                                </li>
-                                <li class="type_link" onclick="makeGallery('Web')">
-                                    Web
-                                </li>
-                                <li class="type_link" onclick="makeGallery('Mobile')">
-                                    Mobile
-                                </li>
-                                <li class="type_link" onclick="makeGallery('Typography')">
-                                    Typography
-                                </li>
-                            </ul>
+
                         </div>
                     </div>
 

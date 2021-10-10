@@ -266,30 +266,58 @@ ul {
 /* read more */
 .read_more_state {
     display: none;
-  }
-  .read_more_target {
+}
+.read_more_target {
     opacity: 0;
     max-height: 0;
     font-size: 0;
     transition: .3s ease;
-  }
-  .read_more_state:checked ~ .read_more_wrap .read_more_target {
+}
+.read_more_state:checked ~ .read_more_wrap .read_more_target {
     opacity: 1;
     font-size: inherit;
     max-height: 999em;
-  }
-  .read_more_state ~ .read_more_trigger:before {
-    content: '+ Read';
-  }
-  .read_more_state:checked ~ .read_more_trigger:before {
-    content: '- Hide';
-  }
-  .read_more_trigger {
+}
+.read_more_state ~ .read_more_trigger:before {
+    content: 'Read +';
+}
+.read_more_state:checked ~ .read_more_trigger:before {
+    content: 'Hide -';
+}
+.read_more_trigger {
     cursor: pointer;
     display: inline-block;
     color: grey;
     padding-top:10px;
-  }
+}
+
+/* filter expand */
+.filter_expand_state {
+    display: none;
+}
+.filter_expand_target {
+    opacity: 0;
+    max-height: 0;
+    font-size: 0;
+    transition: .3s ease;
+}
+.filter_expand_state:checked ~ .filter_expand_wrap .filter_expand_target {
+    opacity: 1;
+    font-size: inherit;
+    max-height: 999em;
+}
+.filter_expand_state ~ .filter_expand_trigger:before {
+    content: 'Filter +';
+}
+.filter_expand_state:checked ~ .filter_expand_trigger:before {
+    content: 'Filter -';
+}
+.filter_expand_trigger {
+    cursor: pointer;
+    display: inline-block;
+    color: grey;
+    padding-top:10px;
+}
     
 /* lightbox */
 .lightbox{
