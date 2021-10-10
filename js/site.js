@@ -176,8 +176,8 @@ function makeGallery(airtableViewName) {
     gallery.removeChild(gallery.firstChild);
   }
 
-  let catagory_title = document.querySelector('#catagory_title');
-  catagory_title.innerHTML = airtableViewName + ' Projects';
+  let category_title = document.querySelector('#category_title');
+  category_title.innerHTML = airtableViewName + ' Projects';
 
   // returns URL
   function caseStudyForRecord(record) {
