@@ -224,8 +224,16 @@ let fetchAboutPage = function () {
     view: "Grid view"
   }).eachPage(function page(records, fetchNextPage) {
     records.forEach(function (record) {
-      bio.innerHTML = record.fields.Bio;
-      statement.innerHTML = record.fields.Statement;
+      function retrieveText(object, fieldName) {
+        if (record.fields[fieldName] !== undefined && object !== null) {
+          object.innerHTML = record.fields[fieldName];
+        }
+        else { console.log(`${fieldName} is undefined.`) }
+      }
+
+      retrieveText(bio, "Bio");
+      // retrieveText(statement, "Statement");
+
       CV_link.setAttribute('href', record.fields.CV[0].url);
       photo.setAttribute('src', record.fields.Photo[0].url);
     });
