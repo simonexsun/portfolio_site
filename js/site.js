@@ -10,32 +10,48 @@ let fetchCaseStudy = function (slug) {
   }
 
   let formula = `Slug="${slug}"`;
-  // text
+  // get text DOM
+  // Introduction
   let title = document.querySelector('.dynamic_title');
+  let created_year = document.querySelector('.dynamic_year');
+  let institution = document.querySelector('.dynamic_institution');
   let subtitle = document.querySelector('.dynamic_subtitle');
   let description = document.querySelector('.dynamic_description');
+  // Background Research
   let challenge = document.querySelector('.dynamic_challenge');
   let inspiration = document.querySelector('.dynamic_inspiration');
   let questions = document.querySelector('.dynamic_questions');
   let insights = document.querySelector('.dynamic_insights');
-
-  let concept = document.querySelector('.dynamic_concept');
+  // Concept Development
+  let brainstorm = document.querySelector('.dynamic_brainstorm');
+  let solution = document.querySelector('.dynamic_solution');
+  let characters = document.querySelector('.dynamic_characters');
+  let character_relationship = document.querySelector('.dynamic_character_relationship');
+  let win = document.querySelector('.dynamic_win');
+  // Fabrication Process
   let fabricating = document.querySelector('.dynamic_fabricating');
   let summary = document.querySelector('.dynamic_summary');
-  let created_year = document.querySelector('.dynamic_year');
-  let institution = document.querySelector('.dynamic_institution');
-  let reflection = document.querySelector('.dynamic_reflection');
 
-  // images
+  let reflection = document.querySelector('.dynamic_reflection');
+  
+  // get images DOM
+  // Introduction
   let cover_img = document.querySelector('.dynamic_cover_img');
   let project_img = document.querySelector('.dynamic_project_img');
   let project_img_lightbox = document.querySelector('.dynamic_project_img_lightbox');
+  // Background Research
   let challenge_img = document.querySelector('.dynamic_challenge_img');
   let inspiration_img = document.querySelector('.dynamic_inspiration_img');
   let questions_img = document.querySelector('.dynamic_questions_img');
   let insights_img = document.querySelector('.dynamic_insights_img');
+  // Concept Development
+  let brainstorm_img = document.querySelector('.dynamic_brainstorm_img');
+  let solution_img = document.querySelector('.dynamic_solution_img');
+  let characters_img = document.querySelector('.dynamic_characters_img');
+  let character_relationship_img = document.querySelector('.dynamic_character_relationship_img');
+  let win_img = document.querySelector('.dynamic_win_img');
 
-  let sketch_img = document.querySelector('.dynamic_sketch_img');
+  // Fabrication Process
   let process_img = document.querySelector('.dynamic_process_img');
   let final_product_img_div = document.querySelector('.dynamic_final_product_img_container');
 
@@ -75,32 +91,49 @@ let fetchCaseStudy = function (slug) {
         }
       }
 
-      // text
+      // retrieve text
+      // Introduction
       retrieveText(title, "Title");
       retrieveText(subtitle, "Subtitle");
       retrieveText(institution, "Institution");
       created_year.innerHTML = new Date(record.fields.Created_date).getFullYear();//convret Date to year
       retrieveText(description, "Description");
+      // Background Research
       retrieveText(challenge, "Challenge");      
       retrieveText(inspiration, "Inspiration");
       retrieveText(questions, "Questions");
       retrieveText(insights, "Insights");
+      // Concept Development
+      retrieveText(brainstorm, "Brainstorm");
+      retrieveText(solution, "Solution");
+      retrieveText(characters, "Characters");
+      retrieveText(character_relationship, "Character_relationship");
+      retrieveText(win, "Win");
 
-      retrieveText(concept, "Concept");
+      // Fabrication Process
       retrieveText(fabricating, "Fabricating");
       retrieveText(summary, "Summary");
+      //Takeaways
       retrieveText(reflection, "Reflection");
 
-      // images
+      // retrieve images
+      // Introduction
       retrieveImage(cover_img, "Cover_img");
       retrieveImage(project_img, "Project_img");
       retrieveImage(project_img_lightbox, "Project_img");
+      // Background Research
       retrieveImage(challenge_img, "Challenge_img");      
       retrieveImage(inspiration_img, "Inspiration_img");
       retrieveImage(questions_img, "Questions_img");
       retrieveImage(insights_img, "Insights_img");
+      // Concept Development
+      retrieveImage(brainstorm_img, "Brainstorm_img");
+      retrieveImage(solution_img, "Solution_img");
+      retrieveImage(characters_img, "Characters_img");
+      retrieveImage(character_relationship_img, "Character_relationship_img");
+      retrieveImage(win_img, "Win_img");
 
-      retrieveImage(sketch_img, "Sketch_img");
+      // Fabrication Process
       retrieveImage(process_img, "Process_img");
       record.fields.Final_product_img.forEach(function (attachment) {
         let final_product_img = document.createElement('img');
