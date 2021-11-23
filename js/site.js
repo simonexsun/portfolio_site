@@ -14,6 +14,7 @@ let fetchCaseStudy = function (slug) {
   let title = document.querySelector('.dynamic_title');
   let subtitle = document.querySelector('.dynamic_subtitle');
   let description = document.querySelector('.dynamic_description');
+  let challenge = document.querySelector('.dynamic_challenge');
   let concept = document.querySelector('.dynamic_concept');
   let fabricating = document.querySelector('.dynamic_fabricating');
   let summary = document.querySelector('.dynamic_summary');
@@ -25,6 +26,7 @@ let fetchCaseStudy = function (slug) {
   let cover_img = document.querySelector('.dynamic_cover_img');
   let project_img = document.querySelector('.dynamic_project_img');
   let project_img_lightbox = document.querySelector('.dynamic_project_img_lightbox');
+  let challenge_img = document.querySelector('.dynamic_challenge_img');
   let sketch_img = document.querySelector('.dynamic_sketch_img');
   let process_img = document.querySelector('.dynamic_process_img');
   let final_product_img_div = document.querySelector('.dynamic_final_product_img_container');
@@ -39,12 +41,16 @@ let fetchCaseStudy = function (slug) {
       function retrieveText(object, fieldName) {
         if (record.fields[fieldName] !== undefined && object !== null) {
           // show title or content if info is defined
+          if(record.fields[fieldName] = 'skip'){
+            object.innerHTML = '';
+          }else{          
           object.innerHTML = record.fields[fieldName];
+          }
         }
         else { 
-          console.log(`${fieldName} is undefined.`) 
+          console.log(`${record.fields[fieldName]} is undefined.`) 
           //don't show title or content if info is undefined
-            object.previousElementSibling.innerHTML = '';
+            object.previousElementSibling.innerHTML = ''; //find the element that display title
             object.innerHTML = '';
         }
       }
@@ -65,6 +71,8 @@ let fetchCaseStudy = function (slug) {
       retrieveText(institution, "Institution");
       created_year.innerHTML = new Date(record.fields.Created_date).getFullYear();//convret Date to year
       retrieveText(description, "Description");
+      retrieveText(challenge, "Challenge");
+
       retrieveText(concept, "Concept");
       retrieveText(fabricating, "Fabricating");
       retrieveText(summary, "Summary");
@@ -74,6 +82,8 @@ let fetchCaseStudy = function (slug) {
       retrieveImage(cover_img, "Cover_img");
       retrieveImage(project_img, "Project_img");
       retrieveImage(project_img_lightbox, "Project_img");
+      retrieveImage(challenge_img, "Challenge_img");
+
       retrieveImage(sketch_img, "Sketch_img");
       retrieveImage(process_img, "Process_img");
       record.fields.Final_product_img.forEach(function (attachment) {
