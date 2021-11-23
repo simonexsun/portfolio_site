@@ -70,7 +70,8 @@ let fetchCaseStudy = function (slug) {
           object.setAttribute('src', record.fields[fieldName][0].thumbnails.full.url);
         }
         else if (object !== null) {
-          object.setAttribute('src', record.fields.Placeholder_img[0].thumbnails.full.url);
+          object.style.display = 'none';
+          // object.setAttribute('src', record.fields.Placeholder_img[0].thumbnails.full.url);
         }
       }
 
