@@ -15,6 +15,10 @@ let fetchCaseStudy = function (slug) {
   let subtitle = document.querySelector('.dynamic_subtitle');
   let description = document.querySelector('.dynamic_description');
   let challenge = document.querySelector('.dynamic_challenge');
+  let inspiration = document.querySelector('.dynamic_inspiration');
+  let questions = document.querySelector('.dynamic_questions');
+  let insights = document.querySelector('.dynamic_insights');
+
   let concept = document.querySelector('.dynamic_concept');
   let fabricating = document.querySelector('.dynamic_fabricating');
   let summary = document.querySelector('.dynamic_summary');
@@ -27,6 +31,10 @@ let fetchCaseStudy = function (slug) {
   let project_img = document.querySelector('.dynamic_project_img');
   let project_img_lightbox = document.querySelector('.dynamic_project_img_lightbox');
   let challenge_img = document.querySelector('.dynamic_challenge_img');
+  let inspiration_img = document.querySelector('.dynamic_inspiration_img');
+  let questions_img = document.querySelector('.dynamic_questions_img');
+  let insights_img = document.querySelector('.dynamic_insights_img');
+
   let sketch_img = document.querySelector('.dynamic_sketch_img');
   let process_img = document.querySelector('.dynamic_process_img');
   let final_product_img_div = document.querySelector('.dynamic_final_product_img_container');
@@ -40,18 +48,19 @@ let fetchCaseStudy = function (slug) {
       //retrive & fill text function
       function retrieveText(object, fieldName) {
         if (record.fields[fieldName] !== undefined && object !== null) {
-          // show title or content if info is defined
-          if(record.fields[fieldName] = 'skip'){
-            object.innerHTML = '';
-          }else{          
-          object.innerHTML = record.fields[fieldName];
+          if(record.fields[fieldName] == 'skip'){
+            // skip content if undefined       
+            object.style.display = 'none';
+          }else{   
+            // show title or content if defined       
+            object.innerHTML = record.fields[fieldName];
           }
         }
         else { 
-          console.log(`${record.fields[fieldName]} is undefined.`) 
-          //don't show title or content if info is undefined
-            object.previousElementSibling.innerHTML = ''; //find the element that display title
-            object.innerHTML = '';
+          console.log(`${fieldName} is undefined.`);
+          // hide title or content if undefined
+          object.previousElementSibling.style.display = 'none'; //find the element that display title
+          object.style.display = 'none';
         }
       }
 
@@ -71,7 +80,10 @@ let fetchCaseStudy = function (slug) {
       retrieveText(institution, "Institution");
       created_year.innerHTML = new Date(record.fields.Created_date).getFullYear();//convret Date to year
       retrieveText(description, "Description");
-      retrieveText(challenge, "Challenge");
+      retrieveText(challenge, "Challenge");      
+      retrieveText(inspiration, "Inspiration");
+      retrieveText(questions, "Questions");
+      retrieveText(insights, "Insights");
 
       retrieveText(concept, "Concept");
       retrieveText(fabricating, "Fabricating");
@@ -82,7 +94,10 @@ let fetchCaseStudy = function (slug) {
       retrieveImage(cover_img, "Cover_img");
       retrieveImage(project_img, "Project_img");
       retrieveImage(project_img_lightbox, "Project_img");
-      retrieveImage(challenge_img, "Challenge_img");
+      retrieveImage(challenge_img, "Challenge_img");      
+      retrieveImage(inspiration_img, "Inspiration_img");
+      retrieveImage(questions_img, "Questions_img");
+      retrieveImage(insights_img, "Insights_img");
 
       retrieveImage(sketch_img, "Sketch_img");
       retrieveImage(process_img, "Process_img");
