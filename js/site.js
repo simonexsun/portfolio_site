@@ -29,9 +29,10 @@ let fetchCaseStudy = function (slug) {
   let character_relationship = document.querySelector('.dynamic_character_relationship');
   let win = document.querySelector('.dynamic_win');
   // Fabrication Process
-  let fabricating = document.querySelector('.dynamic_fabricating');
-  let summary = document.querySelector('.dynamic_summary');
-
+  let sketches = document.querySelector('.dynamic_sketches');
+  let prototypes = document.querySelector('.dynamic_prototypes');
+  let iterations = document.querySelector('.dynamic_iterations');
+  // Takeaways
   let reflection = document.querySelector('.dynamic_reflection');
   
   // get images DOM
@@ -50,10 +51,10 @@ let fetchCaseStudy = function (slug) {
   let characters_img = document.querySelector('.dynamic_characters_img');
   let character_relationship_img = document.querySelector('.dynamic_character_relationship_img');
   let win_img = document.querySelector('.dynamic_win_img');
-
   // Fabrication Process
-  let process_img = document.querySelector('.dynamic_process_img');
-  let final_product_img_div = document.querySelector('.dynamic_final_product_img_container');
+  let sketches_img = document.querySelector('.dynamic_sketches_img');
+  let prototypes_img_div = document.querySelector('.dynamic_prototypes_img_container');
+  let iterations_img = document.querySelector('.dynamic_iterations_img');
 
   base('Case_Study').select({
     filterByFormula: formula,
@@ -109,10 +110,10 @@ let fetchCaseStudy = function (slug) {
       retrieveText(characters, "Characters");
       retrieveText(character_relationship, "Character_relationship");
       retrieveText(win, "Win");
-
-      // Fabrication Process
-      retrieveText(fabricating, "Fabricating");
-      retrieveText(summary, "Summary");
+      // Fabrication Process      
+      retrieveText(sketches, "Sketches");
+      retrieveText(prototypes, "Prototypes");
+      retrieveText(iterations, "Iterations");
       //Takeaways
       retrieveText(reflection, "Reflection");
 
@@ -132,23 +133,23 @@ let fetchCaseStudy = function (slug) {
       retrieveImage(characters_img, "Characters_img");
       retrieveImage(character_relationship_img, "Character_relationship_img");
       retrieveImage(win_img, "Win_img");
-
       // Fabrication Process
-      retrieveImage(process_img, "Process_img");
-      record.fields.Final_product_img.forEach(function (attachment) {
-        let final_product_img = document.createElement('img');
-        final_product_img.setAttribute('src', attachment.url);
-        final_product_img.setAttribute('alt', "Final Project Image");
-        final_product_img.classList.add('dynamic_final_product_img');
-        final_product_img_div.appendChild(final_product_img);
+      retrieveImage(sketches_img, "Sketches_img");
+      record.fields.Prototypes_img.forEach(function (attachment) {
+        let prototypes_img = document.createElement('img');
+        prototypes_img.setAttribute('src', attachment.url);
+        prototypes_img.setAttribute('alt', "Prototypes Image");
+        prototypes_img.classList.add('dynamic_prototypes_img');
+        prototypes_img_div.appendChild(prototypes_img);
 
         let url = location.pathname;
         let pos = url.lastIndexOf("case_study_");
         let index_length = "case_study_".length;
         let view_name = location.pathname.substr(pos + index_length, 2);
-        console.log(`view name is: [${view_name}]`);
-        final_product_img.setAttribute("id", view_name);
+        prototypes_img.setAttribute("id", view_name);
       });
+      retrieveImage(iterations_img, "Iterations_img");
+
     });
   }, function done(err) {
     if (err) { console.error(err); return; }
