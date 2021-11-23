@@ -38,9 +38,15 @@ let fetchCaseStudy = function (slug) {
       //retrive & fill text function
       function retrieveText(object, fieldName) {
         if (record.fields[fieldName] !== undefined && object !== null) {
+          // show title or content if info is defined
           object.innerHTML = record.fields[fieldName];
         }
-        else { console.log(`${fieldName} is undefined.`) }
+        else { 
+          console.log(`${fieldName} is undefined.`) 
+          //don't show title or content if info is undefined
+            object.previousElementSibling.innerHTML = '';
+            object.innerHTML = '';
+        }
       }
 
       //retrive & fill images function
