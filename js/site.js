@@ -28,8 +28,17 @@ let fetchCaseStudy = function (slug) {
   let characters = document.querySelector('.dynamic_characters');
   let character_relationship = document.querySelector('.dynamic_character_relationship');
   let win = document.querySelector('.dynamic_win');
+  let controls = document.querySelector('.dynamic_controls');
+
   // Fabrication Process
-  let sketches = document.querySelector('.dynamic_sketches');
+  let sketches = document.querySelector('.dynamic_sketches');  
+  //Game
+  let networking = document.querySelector('.dynamic_networking');
+  let map = document.querySelector('.dynamic_map');
+  let NavMesh = document.querySelector('.dynamic_NavMesh');
+  let UI = document.querySelector('.dynamic_UI');
+  let controller = document.querySelector('.dynamic_controller');
+
   let prototypes = document.querySelector('.dynamic_prototypes');
   let iterations = document.querySelector('.dynamic_iterations');
   // Takeaways
@@ -51,8 +60,17 @@ let fetchCaseStudy = function (slug) {
   let characters_img = document.querySelector('.dynamic_characters_img');
   let character_relationship_img = document.querySelector('.dynamic_character_relationship_img');
   let win_img = document.querySelector('.dynamic_win_img');
+  let controls_img = document.querySelector('.dynamic_controls_img');
+
   // Fabrication Process
   let sketches_img = document.querySelector('.dynamic_sketches_img');
+  //Game
+  let networking_img = document.querySelector('.dynamic_networking_img');
+  let map_img = document.querySelector('.dynamic_map_img');
+  let NavMesh_img = document.querySelector('.dynamic_NavMesh_img');
+  let UI_img = document.querySelector('.dynamic_UI_img');
+  let controller_img = document.querySelector('.dynamic_controller_img');
+
   let prototypes_img_div = document.querySelector('.dynamic_prototypes_img_container');
   let iterations_img = document.querySelector('.dynamic_iterations_img');
 
@@ -110,8 +128,17 @@ let fetchCaseStudy = function (slug) {
       retrieveText(characters, "Characters");
       retrieveText(character_relationship, "Character_relationship");
       retrieveText(win, "Win");
+      retrieveText(controls, "Controls");
+
       // Fabrication Process      
       retrieveText(sketches, "Sketches");
+      //Game
+      retrieveText(networking, "Networking");
+      retrieveText(map, "Map");
+      retrieveText(NavMesh, "NavMesh");
+      retrieveText(UI, "UI");
+      retrieveText(controller, "Controller");
+
       retrieveText(prototypes, "Prototypes");
       retrieveText(iterations, "Iterations");
       //Takeaways
@@ -133,8 +160,17 @@ let fetchCaseStudy = function (slug) {
       retrieveImage(characters_img, "Characters_img");
       retrieveImage(character_relationship_img, "Character_relationship_img");
       retrieveImage(win_img, "Win_img");
+      retrieveImage(controls_img, "Controls_img");
+
       // Fabrication Process
       retrieveImage(sketches_img, "Sketches_img");
+      //Game
+      retrieveImage(networking_img, "Networking_img");
+      retrieveImage(map_img, "Map_img");
+      retrieveImage(NavMesh_img, "NavMesh_img");
+      retrieveImage(UI_img, "UI_img");
+      retrieveImage(controller_img, "Controller_img");
+
       record.fields.Prototypes_img.forEach(function (attachment) {
         let prototypes_img = document.createElement('img');
         prototypes_img.setAttribute('src', attachment.url);
