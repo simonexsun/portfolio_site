@@ -46,8 +46,48 @@ ul {
   border-bottom: 1px solid;
   font-weight: 100;
 }
+/* blockquote style */
+.blockquote {
+  padding: 5vh 0vw;
+  margin: 0;
+  position: relative;
+}
+.blockquote {
+  font-size: 1.5rem;
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.blockquote:before {
+  position: absolute;
+  font-family: "FontAwesome";
+  top: 0;
+  left: 0;
+
+  content: "\f10d";
+  font-size: 100px;
+  color: rgba(0, 0, 0, 0.1);
+}
+
+.blockquote::after {
+  content: "";
+  top: 20px;
+  left: 50%;
+  margin-left: -100px;
+  position: absolute;
+  border-bottom: 3px solid rgb(207, 54, 34);
+  height: 3px;
+  width: 200px;
+}
+
+.quoter {
+  text-align: right;
+}
+
 .type_heading_1 {
   /* Project Titles */
+  /*currentlly unused*/
   text-transform: uppercase;
   font-size: 2.5rem;
   margin: 0 0 1.5rem;
@@ -93,7 +133,6 @@ ul {
 }
 .type_emphasis {
   text-decoration: none;
-  font-style: italic;
   color: rgb(207, 54, 34);
 }
 
