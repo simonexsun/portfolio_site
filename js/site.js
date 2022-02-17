@@ -258,7 +258,7 @@ let makeNavigation = function (slug) { // slug is only defined on case studies, 
     anchor.classList.add('dropdown_item');
     anchor.classList.add('type_body_2');
     anchor.classList.add('project_link');
-    let link = 'project_index.html';
+    let link = 'index.html#category_title';
 
     anchor.innerHTML = 'All Works…';
     anchor.setAttribute('href', link);
