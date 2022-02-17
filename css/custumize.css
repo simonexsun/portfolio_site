@@ -93,8 +93,9 @@
 }
 
 .home_content {
-  position: fixed;
-  bottom: 20vh;
+  margin: 0vw 20vw;
+  margin-bottom: -20vh;
+  padding-top: 20vh;
 }
 
 #category_title {

@@ -5,6 +5,7 @@ body {
   font-family: urw-form, sans-serif;
   font-style: normal;
   margin: 0;
+  padding: 0;
 }
 a {
   text-decoration: none;
@@ -21,7 +22,7 @@ ul {
 }
 .scroll_content {
   overflow: scroll;
-  padding-top: 2vh;
+  padding-top: 20vh;
 }
 .section {
   padding: 2vh 0;
@@ -31,6 +32,7 @@ ul {
   position: fixed !important;
   min-width: 100vw;
   height: 2vh;
+  top: 0;
   background-color: rgba(255, 255, 255, 0.6);
   margin: 0;
   padding: 4vh 0;
