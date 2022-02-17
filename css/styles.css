@@ -89,6 +89,11 @@ ul {
 .type_link:hover {
   border-bottom: 1px solid;
 }
+.type_emphasis {
+  text-decoration: none;
+  font-style: italic;
+  color: rgb(207, 54, 34);
+}
 
 .color_primary {
   color: black;
