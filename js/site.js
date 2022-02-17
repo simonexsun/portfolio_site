@@ -94,8 +94,12 @@ let fetchCaseStudy = function (slug) {
         else { 
           console.log(`${fieldName} is undefined.`);
           // hide title or content if undefined
-          object.previousElementSibling.style.display = 'none'; //find the element that display title
-          object.style.display = 'none';
+          try {
+            object.previousElementSibling.style.display = 'none'; //find the element that display title
+            object.style.display = 'none';
+          }catch(error){
+            console.log(error);
+          }
         }
       }
 
