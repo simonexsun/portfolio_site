@@ -71,7 +71,11 @@ let fetchCaseStudy = function (slug) {
   let UI_img = document.querySelector('.dynamic_UI_img');
   let controller_img = document.querySelector('.dynamic_controller_img');
 
-  let prototypes_img_div = document.querySelector('.dynamic_prototypes_img_container');
+  try{
+    let prototypes_img_div = document.querySelector('.dynamic_prototypes_img_container');
+  }catch(e){
+    console.log(e);
+  }
   let iterations_img = document.querySelector('.dynamic_iterations_img');
 
   base('Case_Study').select({
@@ -180,8 +184,9 @@ let fetchCaseStudy = function (slug) {
         prototypes_img.setAttribute('src', attachment.url);
         prototypes_img.setAttribute('alt', "Prototypes Image");
         prototypes_img.classList.add('dynamic_prototypes_img');
-        prototypes_img_div.appendChild(prototypes_img);
-
+        try{
+          prototypes_img_div.appendChild(prototypes_img);
+        }catch(e){}
         let url = location.pathname;
         let pos = url.lastIndexOf("case_study_");
         let index_length = "case_study_".length;
