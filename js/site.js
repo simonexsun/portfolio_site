@@ -40,6 +40,12 @@ let fetchCaseStudy = function (slug) {
   let controller = document.querySelector('.dynamic_controller');
 
   let prototypes = document.querySelector('.dynamic_prototypes');
+  let prototype_1 = document.querySelector('.dynamic_prototype_1');
+  let prototype_2 = document.querySelector('.dynamic_prototype_2');
+  let prototype_3 = document.querySelector('.dynamic_prototype_3');
+  // let prototype_4 = document.querySelector('.dynamic_prototype_4');
+
+
   let iterations = document.querySelector('.dynamic_iterations');
   // Takeaways
   let reflection = document.querySelector('.dynamic_reflection');
@@ -76,7 +82,15 @@ let fetchCaseStudy = function (slug) {
   }catch(e){
     console.log(e);
   }
+  
+  let prototype_1_img = document.querySelector('.dynamic_prototype_1_img');
+  let prototype_2_img = document.querySelector('.dynamic_prototype_2_img');
+  let prototype_3_img = document.querySelector('.dynamic_prototype_3_img');
+  // let prototype_4_img = document.querySelector('.dynamic_prototype_4_img');
+
+
   let iterations_img = document.querySelector('.dynamic_iterations_img');
+
 
   base('Case_Study').select({
     filterByFormula: formula,
@@ -148,6 +162,11 @@ let fetchCaseStudy = function (slug) {
       retrieveText(controller, "Controller");
 
       retrieveText(prototypes, "Prototypes");
+      retrieveText(prototype_1, "Prototype_1");
+      retrieveText(prototype_2, "Prototype_2");
+      retrieveText(prototype_3, "Prototype_3");
+      // retrieveText(prototype_4, "Prototype_4");
+
       retrieveText(iterations, "Iterations");
       //Takeaways
       retrieveText(reflection, "Reflection");
@@ -193,6 +212,13 @@ let fetchCaseStudy = function (slug) {
         let view_name = location.pathname.substr(pos + index_length, 2);
         prototypes_img.setAttribute("id", view_name);
       });
+      
+      retrieveImage(prototype_1_img, "Prototype_1_img");
+      retrieveImage(prototype_2_img, "Prototype_2_img");
+      retrieveImage(prototype_3_img, "Prototype_3_img");
+      // retrieveImage(prototype_4_img, "Prototype_4_img");
+
+
       retrieveImage(iterations_img, "Iterations_img");
 
     });
