@@ -1,3 +1,4 @@
+// @ts-check
 let Airtable = require('airtable');
 
 let base = new Airtable({ apiKey: 'keyfpZwKVsD8rJeMF' }).base('appEix67CO2YQY2rP');
@@ -45,7 +46,6 @@ let fetchCaseStudy = function (slug) {
   let prototype_3 = document.querySelector('.dynamic_prototype_3');
   // let prototype_4 = document.querySelector('.dynamic_prototype_4');
 
-
   let iterations = document.querySelector('.dynamic_iterations');
   // Takeaways
   let reflection = document.querySelector('.dynamic_reflection');
@@ -76,12 +76,7 @@ let fetchCaseStudy = function (slug) {
   let NavMesh_img = document.querySelector('.dynamic_NavMesh_img');
   let UI_img = document.querySelector('.dynamic_UI_img');
   let controller_img = document.querySelector('.dynamic_controller_img');
-
-  try{
-    let prototypes_img_div = document.querySelector('.dynamic_prototypes_img_container');
-  }catch(e){
-    console.log(e);
-  }
+  let prototypes_img_div = document.querySelector('.dynamic_prototypes_img_container');
   
   let prototype_1_img = document.querySelector('.dynamic_prototype_1_img');
   let prototype_2_img = document.querySelector('.dynamic_prototype_2_img');
@@ -199,13 +194,16 @@ let fetchCaseStudy = function (slug) {
       retrieveImage(controller_img, "Controller_img");
 
       record.fields.Prototypes_img.forEach(function (attachment) {
+        console.log(attachment); // TODO: temporary to see attachment structure
         let prototypes_img = document.createElement('img');
         prototypes_img.setAttribute('src', attachment.url);
         prototypes_img.setAttribute('alt', "Prototypes Image");
         prototypes_img.classList.add('dynamic_prototypes_img');
         try{
           prototypes_img_div.appendChild(prototypes_img);
-        }catch(e){}
+        }catch(e){
+          console.error(`error appending prototype img: ${e}`);
+        }
         let url = location.pathname;
         let pos = url.lastIndexOf("case_study_");
         let index_length = "case_study_".length;
