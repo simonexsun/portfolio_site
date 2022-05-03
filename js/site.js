@@ -105,8 +105,8 @@ let fetchCaseStudy = function (slug) {
           }
         }
         else { 
-          console.log(`${fieldName} is undefined.`);
           // hide title or content if undefined
+          // console.log(`${fieldName} is undefined.`);
           try {
             object.previousElementSibling.style.display = 'none'; //find the element that display title
             object.style.display = 'none';
@@ -194,21 +194,33 @@ let fetchCaseStudy = function (slug) {
       retrieveImage(controller_img, "Controller_img");
 
       record.fields.Prototypes_img.forEach(function (attachment) {
-        console.log(attachment); // TODO: temporary to see attachment structure
-        let prototypes_img = document.createElement('img');
-        prototypes_img.setAttribute('src', attachment.url);
-        prototypes_img.setAttribute('alt', "Prototypes Image");
-        prototypes_img.classList.add('dynamic_prototypes_img');
+        let fileType = attachment.type.substring(0, attachment.type.indexOf("/")); //trim string after "/"
+        console.log(fileType);
+
+        let prototypes_media;
+        if (fileType == "video"){
+          prototypes_media = document.createElement('video');
+          prototypes_media.setAttribute("controls","controls")   
+          prototypes_media.setAttribute('src', attachment.url);
+          prototypes_media.setAttribute('alt', "Prototypes Image");
+          prototypes_media.classList.add('dynamic_prototypes_img');
+        }else{
+          prototypes_media = document.createElement('img');
+          prototypes_media.setAttribute('src', attachment.url);
+          prototypes_media.setAttribute('alt', "Prototypes Image");
+          prototypes_media.classList.add('dynamic_prototypes_img');
+        }
+      
         try{
-          prototypes_img_div.appendChild(prototypes_img);
+          prototypes_img_div.appendChild(prototypes_media);
         }catch(e){
           console.error(`error appending prototype img: ${e}`);
         }
-        let url = location.pathname;
-        let pos = url.lastIndexOf("case_study_");
-        let index_length = "case_study_".length;
-        let view_name = location.pathname.substr(pos + index_length, 2);
-        prototypes_img.setAttribute("id", view_name);
+        // let url = location.pathname;
+        // let pos = url.lastIndexOf("case_study_");
+        // let index_length = "case_study_".length;
+        // let view_name = location.pathname.substring(pos + index_length, 2);
+        // prototypes_img.setAttribute("id", view_name);
       });
       
       retrieveImage(prototype_1_img, "Prototype_1_img");
@@ -363,7 +375,9 @@ let fetchAboutPage = function () {
         if (record.fields[fieldName] !== undefined && object !== null) {
           object.innerHTML = record.fields[fieldName];
         }
-        else { console.log(`${fieldName} is undefined.`) }
+        else { 
+          // console.log(`${fieldName} is undefined.`) 
+        }
       }
 
       retrieveText(bio, "Bio");
