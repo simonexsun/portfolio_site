@@ -1,33 +1,41 @@
 html {
   scroll-behavior: smooth;
 }
+
 body {
   font-family: urw-form, sans-serif;
   font-style: normal;
   margin: 0;
   padding: 0;
 }
+
 a {
   text-decoration: none;
   color: black;
 }
+
 ul {
   list-style-type: none;
 }
+
 .y_slider {
   padding-top: 4vh;
 }
+
 .content {
   margin: 0vw 20vw;
 }
+
 .scroll_content {
   overflow: scroll;
   padding-top: 20vh;
 }
+
 .section {
   padding: 2vh 0;
   margin: 3vh 0;
 }
+
 .header {
   position: fixed !important;
   min-width: 100vw;
@@ -38,20 +46,24 @@ ul {
   padding: 4vh 0;
   z-index: 1;
 }
+
 .header:hover {
   background-color: rgb(255, 255, 255);
   transition: 1s;
 }
+
 .section_heading {
   border-bottom: 1px solid;
   font-weight: 100;
 }
+
 /* blockquote style */
 .blockquote {
   padding: 5vh 0vw;
   margin: 0;
   position: relative;
 }
+
 .blockquote {
   font-size: 1.5rem;
   font-weight: 900;
@@ -94,8 +106,9 @@ ul {
   font-weight: 900;
   font-style: normal;
 }
+
 .type_heading_2 {
-  /* Process Section Titles */
+  /* Section Titles */
   text-transform: uppercase;
   font-size: 1.5rem;
   margin: 0 0 0.75rem;
@@ -103,8 +116,9 @@ ul {
   font-style: normal;
   color: rgba(0, 0, 0, 0.3);
 }
+
 .type_heading_3 {
-  /* Process Sub-section Titles */
+  /* Sub-section Titles */
   text-transform: initial;
   font-size: 1.5rem;
   margin: 1rem 0 0 0;
@@ -116,6 +130,7 @@ ul {
   /* Demi, bold hightlights */
   font-weight: 600;
 }
+
 .type_body_2 {
   /* Extra Light, descriptions */
   font-weight: 200;
@@ -127,9 +142,11 @@ ul {
   color: rgb(207, 54, 34);
   cursor: pointer;
 }
+
 .type_link:hover {
   border-bottom: 1px solid;
 }
+
 .type_emphasis {
   text-decoration: none;
   color: rgb(207, 54, 34);
@@ -138,16 +155,20 @@ ul {
 .color_primary {
   color: black;
 }
+
 .color_secondary {
   color: rgb(207, 54, 34);
 }
+
 .color_accent {
   color: white;
   background-color: rgb(207, 54, 34);
 }
+
 .contact_buttons {
   object-position: center;
 }
+
 .button {
   cursor: pointer;
   margin: 0.5rem;
@@ -157,6 +178,7 @@ ul {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
   transition: all 0.4s ease;
 }
+
 .button:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
 }
@@ -166,6 +188,7 @@ ul {
   width: 50px;
   background-color: transparent;
 }
+
 .button_secondary {
   color: white;
   background-color: rgb(207, 54, 34);
@@ -180,6 +203,7 @@ ul {
   width: 50px;
   height: 50px;
 }
+
 .chevron {
   position: absolute;
   object-position: center;
@@ -189,9 +213,11 @@ ul {
   transform: scale3d(0.5, 0.5, 0.5);
   animation: move 3s ease-out infinite;
 }
+
 .chevron:first-child {
   animation: move 3s ease-out 1s infinite;
 }
+
 .chevron:nth-child(2) {
   animation: move 3s ease-out 2s infinite;
 }
@@ -205,27 +231,33 @@ ul {
   width: 51%;
   background: #fff;
 }
+
 .chevron:before {
   left: 0;
   transform: skew(0deg, 30deg);
 }
+
 .chevron:after {
   right: 0;
   width: 50%;
   transform: skew(0deg, -30deg);
 }
+
 @keyframes move {
   25% {
     opacity: 1;
   }
+
   33% {
     opacity: 1;
     transform: translateY(30px);
   }
+
   67% {
     opacity: 1;
     transform: translateY(40px);
   }
+
   100% {
     opacity: 0;
     transform: translateY(55px) scale3d(0.5, 0.5, 0.5);
@@ -240,9 +272,11 @@ ul {
   grid-column-gap: 30px;
   grid-row-gap: 0px;
 }
+
 .left_column {
   grid-area: 1 / 1 / 2 / 2;
 }
+
 .right_column {
   grid-area: 1 / 2 / 2 / 3;
 }
@@ -255,17 +289,21 @@ ul {
   grid-column-gap: 0px;
   grid-row-gap: 0px;
 }
+
 .dropdown_menu {
   grid-area: 1 / 1 / 2 / 2;
   position: absolute;
   display: inline-block;
 }
+
 .work {
   grid-area: 1 / 1 / 2 / 2;
 }
+
 .about {
   grid-area: 1 / 2 / 2 / 3;
 }
+
 .contact {
   grid-area: 1 / 3 / 2 / 4;
 }
@@ -277,29 +315,35 @@ ul {
   display: none;
   min-width: 200px;
 }
+
 .dropdown_item {
   padding: 5px 10px;
   cursor: pointer;
   display: block;
 }
+
 .project_link {
   text-decoration: none;
   color: black;
 }
+
 .dropdown_item:hover {
   color: rgb(207, 54, 34);
   background-color: rgb(231, 231, 231);
   transition: 0.4s ease;
 }
+
 .dropdown_item:hover .project_link {
   color: rgb(207, 54, 34);
   transition: 0.4s ease;
 }
+
 .dropdown_menu:hover .dropdown_content {
   display: block;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
   background-color: white;
 }
+
 .dropdown_menu:hover .work {
   color: rgb(207, 54, 34);
   text-shadow: 0.1px 0.1px 2px rgb(207, 54, 34);
@@ -315,6 +359,7 @@ ul {
   cursor: pointer;
   font-weight: 100;
 }
+
 .navigation_item:hover {
   /* width:35%; */
   color: rgb(207, 54, 34);
@@ -326,23 +371,28 @@ ul {
 .read_more_state {
   display: none;
 }
+
 .read_more_target {
   opacity: 0;
   max-height: 0;
   font-size: 0;
   transition: 0.3s ease;
 }
-.read_more_state:checked ~ .read_more_wrap .read_more_target {
+
+.read_more_state:checked~.read_more_wrap .read_more_target {
   opacity: 1;
   font-size: inherit;
   max-height: 999em;
 }
-.read_more_state ~ .read_more_trigger:before {
+
+.read_more_state~.read_more_trigger:before {
   content: "Read +";
 }
-.read_more_state:checked ~ .read_more_trigger:before {
+
+.read_more_state:checked~.read_more_trigger:before {
   content: "Hide -";
 }
+
 .read_more_trigger {
   cursor: pointer;
   display: inline-block;
@@ -354,23 +404,28 @@ ul {
 .filter_expand_state {
   display: none;
 }
+
 .filter_expand_target {
   opacity: 0;
   max-height: 0;
   font-size: 0;
   transition: 0.3s ease;
 }
-.filter_expand_state:checked ~ .filter_expand_wrap .filter_expand_target {
+
+.filter_expand_state:checked~.filter_expand_wrap .filter_expand_target {
   opacity: 1;
   font-size: inherit;
   max-height: 999em;
 }
-.filter_expand_state ~ .filter_expand_trigger:before {
+
+.filter_expand_state~.filter_expand_trigger:before {
   content: "Filter +";
 }
-.filter_expand_state:checked ~ .filter_expand_trigger:before {
+
+.filter_expand_state:checked~.filter_expand_trigger:before {
   content: "Filter -";
 }
+
 .filter_expand_trigger {
   cursor: pointer;
   display: inline-block;
@@ -382,9 +437,11 @@ ul {
 .lightbox {
   cursor: zoom-in;
 }
+
 .lightbox_section {
   padding-top: 10vh;
 }
+
 /* Styles the lightbox, removes it from sight and adds the fade-in transition */
 .lightbox_target {
   position: fixed;
@@ -453,12 +510,14 @@ ul {
   max-height: 100%;
   max-width: 100%;
 }
+
 .gallery_container {
   display: grid;
   grid-gap: 30px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   margin: 10vh 0;
 }
+
 .gallery_item {
   position: relative;
   overflow: hidden;
