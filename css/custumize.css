@@ -51,7 +51,7 @@
 }
 
 .dynamic_prototypes_img_container {
-  height: 80vh;
+  max-height: 80vh;
   display: flex;
   overflow: scroll;
   overflow-y: hidden;
@@ -65,8 +65,10 @@
 
 .dynamic_prototypes_img {
   scroll-snap-align: start;
-  max-width: 100%;
-  padding: 20px 50px 20px 0;
+  object-fit: scale-down;
+  max-height:100%;
+  width: 100%;
+  padding: 20px 0 20px 0;
 }
 
 /* custermized scrollbar */
