@@ -33,42 +33,17 @@
     </section>
 
     <div class="home_content content">
-        <p class="type_heading_1">Simone Sun is a <span class="type_emphasis">creative technologist</span> and <span class="type_emphasis">interaction designer</span></p>
-        <!-- <section class="section">
-            <p class="type_heading_1">
-                "Technology is a powerful yet dangerous beast, but it can be tamed to serve humans by the trainers of
-                <span class="type_emphasis">
-                    Human-Computer Interaction</span> and
-                <span class="type_emphasis">
-                    Human-Centered Design</span>." <br> 
-                <span style="text-align:right;"> -- Simone Sun</span>
-            </p>
-            <blockquote class="blockquote">
-                <p>Technology is a powerful yet dangerous beast, but it can be tamed to serve humans by the trainers of
-                    <span class="type_emphasis">Human-Computer Interaction</span> 
-                    and
-                    <span class="type_emphasis">
-                    Human-Centered Design</span>.<br/>
-                </p>
-                <p class="type_body_2 quoter"> -- Simone Sun </p>
-            </blockquote>
-        </section> -->
+        <p class="type_heading_1" id="home_title">Simone Sun is a <span class="type_emphasis">creative technologist</span> and <span class="type_emphasis">UX designer</span> with a focus on <span class="type_emphasis">Extended Reality (XR)</span>.</p>
     </div>
 
     <div class="content">
         <div class="y_slider">
             <section class="section">
-                <h3 class="type_heading_3" id="category_title">
-                    All Projects
-                </h3>
-
+                
                 <input type="checkbox" class="filter_expand_state" id="filter">
                 <label for="filter" class="filter_expand_trigger"></label>
                 <div class="filter_expand_wrap">
                     <div class="filter_expand_target">
-
-                        <p class="type_link" onclick="makeGallery('All')">All Works</p>
-
                         <div class="parent">
                             <div class="left_column">
                                 <div class="type_body_1">
@@ -112,14 +87,16 @@
                                 </ul>
                             </div>
                         </div>
-
                     </div>
                 </div>
+
+                <h3 class="type_heading_3" id="category_title"></h3>
 
                 <div class="gallery">
                     <div class="gallery_container"></div>
                 </div>
 
+                <p class="type_link" id="all_work_link" onclick="makeGallery('All')">All Works...</p>
             </section>
         </div>
 
@@ -141,7 +118,7 @@
             let slug = searchParam.substring(1);
 
             makeNavigation();
-            makeGallery("All");
+            makeGallery("Representative");
         });
     </script>
    
