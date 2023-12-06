@@ -51,6 +51,7 @@
 }
 
 .dynamic_prototypes_img_container {
+  height: 80vh;
   display: flex;
   overflow: scroll;
   overflow-y: hidden;
