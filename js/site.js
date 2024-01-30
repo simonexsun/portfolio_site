@@ -28,6 +28,7 @@ let fetchCaseStudy = function (slug) {
   // Concept Development
   let brainstorm = document.querySelector(".dynamic_brainstorm");
   let solution = document.querySelector(".dynamic_solution");
+  let method_def = document.querySelector(".dynamic_method_def");
   let characters = document.querySelector(".dynamic_characters");
   let character_relationship = document.querySelector(
     ".dynamic_character_relationship"
@@ -70,6 +71,7 @@ let fetchCaseStudy = function (slug) {
   // Concept Development
   let brainstorm_img = document.querySelector(".dynamic_brainstorm_img");
   let solution_img = document.querySelector(".dynamic_solution_img");
+  let method_def_img = document.querySelector(".dynamic_method_def_img");
   let characters_img = document.querySelector(".dynamic_characters_img");
   let character_relationship_img = document.querySelector(
     ".dynamic_character_relationship_img"
@@ -158,6 +160,7 @@ let fetchCaseStudy = function (slug) {
           // Concept Development
           retrieveText(brainstorm, "Brainstorm");
           retrieveText(solution, "Solution");
+          retrieveText(method_def, "R_method_definition");
           retrieveText(characters, "Characters");
           retrieveText(character_relationship, "Character_relationship");
           retrieveText(win, "Win");
@@ -197,6 +200,7 @@ let fetchCaseStudy = function (slug) {
           // Concept Development
           retrieveImage(brainstorm_img, "Brainstorm_img");
           retrieveImage(solution_img, "Solution_img");
+          retrieveImage(method_def_img, "R_method_definition_img");
           retrieveImage(characters_img, "Characters_img");
           retrieveImage(
             character_relationship_img,
