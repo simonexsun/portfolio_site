@@ -51,6 +51,12 @@ let fetchCaseStudy = function (slug) {
   let prototype_3 = document.querySelector(".dynamic_prototype_3");
   let prototype_4 = document.querySelector(".dynamic_prototype_4");
 
+  // Research related
+  let r_prototypes = document.querySelector(".dynamic_r_prototypes");
+  let interview = document.querySelector(".dynamic_interview");
+  let data_anaylsis = document.querySelector(".dynamic_data_anaylsis");
+  let r_insights = document.querySelector(".dynamic_r_insights");
+
   let iterations = document.querySelector(".dynamic_iterations");
   // Takeaways
   let reflection = document.querySelector(".dynamic_reflection");
@@ -95,6 +101,12 @@ let fetchCaseStudy = function (slug) {
   let prototype_2_img = document.querySelector(".dynamic_prototype_2_img");
   let prototype_3_img = document.querySelector(".dynamic_prototype_3_img");
   let prototype_4_img = document.querySelector(".dynamic_prototype_4_img");
+
+  // Research related
+  let r_prototypes_img = document.querySelector(".dynamic_r_prototypes_img");
+  let interview_img = document.querySelector(".dynamic_interview_img");
+  let data_anaylsis_img = document.querySelector(".dynamic_data_anaylsis_img");
+  let r_insights_img = document.querySelector(".dynamic_r_insights_img");
 
   let iterations_img = document.querySelector(".dynamic_iterations_img");
 
@@ -168,7 +180,7 @@ let fetchCaseStudy = function (slug) {
 
           // Fabrication Process
           retrieveText(sketches, "Sketches");
-          //Game
+          // Game
           retrieveText(networking, "Networking");
           retrieveText(map, "Map");
           retrieveText(NavMesh, "NavMesh");
@@ -176,13 +188,19 @@ let fetchCaseStudy = function (slug) {
           retrieveText(controller, "Controller");
 
           retrieveText(prototypes, "Prototypes");
+          retrieveText(r_prototypes, "R_prototypes");
           retrieveText(prototype_1, "Prototype_1");
           retrieveText(prototype_2, "Prototype_2");
           retrieveText(prototype_3, "Prototype_3");
           retrieveText(prototype_4, "Prototype_4");
 
+          // Research related
+          retrieveText(interview, "Interview");
+          retrieveText(data_anaylsis, "Data_anaylsis");
+          retrieveText(r_insights, "R_insights");
+
           retrieveText(iterations, "Iterations");
-          //Takeaways
+          // Takeaways
           retrieveText(reflection, "Reflection");
 
           // retrieve images
@@ -255,6 +273,12 @@ let fetchCaseStudy = function (slug) {
           retrieveImage(prototype_2_img, "Prototype_2_img");
           retrieveImage(prototype_3_img, "Prototype_3_img");
           retrieveImage(prototype_4_img, "Prototype_4_img");
+
+          // Research related
+          retrieveImage(r_prototypes_img, "R_prototypes_img");
+          retrieveImage(interview_img, "Interview_img");
+          retrieveImage(data_anaylsis_img, "Data_anaylsis_img");
+          retrieveImage(r_insights_img, "R_insights_img");
 
           retrieveImage(iterations_img, "Iterations_img");
         });
