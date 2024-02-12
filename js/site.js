@@ -1,9 +1,10 @@
 // @ts-check
 let Airtable = require("airtable");
 
-let base = new Airtable({ apiKey: "keyfpZwKVsD8rJeMF" }).base(
-  "appEix67CO2YQY2rP"
-);
+let base = new Airtable({
+  apiKey:
+    "patt4vaEGwtdtm08J.fb3e35a7b086c1a9a7e6aca8c7097a111787bbbb1c7231a97d5016f6a06eaad9",
+}).base("appEix67CO2YQY2rP");
 
 let fetchCaseStudy = function (slug) {
   if (!slug) {
