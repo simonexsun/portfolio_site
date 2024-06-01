@@ -28,6 +28,7 @@ let fetchCaseStudy = function (slug) {
   let insights = document.querySelector(".dynamic_insights");
   // Concept Development
   let brainstorm = document.querySelector(".dynamic_brainstorm");
+  let scoping = document.querySelector(".dynamic_scoping");
   let solution = document.querySelector(".dynamic_solution");
   let method_def = document.querySelector(".dynamic_method_def");
   let characters = document.querySelector(".dynamic_characters");
@@ -76,7 +77,8 @@ let fetchCaseStudy = function (slug) {
   let methods_img = document.querySelector(".dynamic_methods_img");
   let insights_img = document.querySelector(".dynamic_insights_img");
   // Concept Development
-  let brainstorm_img = document.querySelector(".dynamic_brainstorm_img");
+  let brainstorm_img = document.querySelector(".dynamic_brainstorm_img");  
+  let scoping_img = document.querySelector(".dynamic_scoping_img");
   let solution_img = document.querySelector(".dynamic_solution_img");
   let method_def_img = document.querySelector(".dynamic_method_def_img");
   let characters_img = document.querySelector(".dynamic_characters_img");
@@ -172,6 +174,7 @@ let fetchCaseStudy = function (slug) {
           retrieveText(insights, "Insights");
           // Concept Development
           retrieveText(brainstorm, "Brainstorm");
+          retrieveText(scoping, "Scoping");
           retrieveText(solution, "Solution");
           retrieveText(method_def, "R_method_definition");
           retrieveText(characters, "Characters");
@@ -218,6 +221,7 @@ let fetchCaseStudy = function (slug) {
           retrieveImage(insights_img, "Insights_img");
           // Concept Development
           retrieveImage(brainstorm_img, "Brainstorm_img");
+          retrieveImage(scoping_img, "Scoping_img");
           retrieveImage(solution_img, "Solution_img");
           retrieveImage(method_def_img, "R_method_definition_img");
           retrieveImage(characters_img, "Characters_img");
