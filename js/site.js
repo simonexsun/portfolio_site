@@ -60,6 +60,8 @@ let fetchCaseStudy = function (slug) {
   let r_insights = document.querySelector(".dynamic_r_insights");
 
   let iterations = document.querySelector(".dynamic_iterations");
+  let testing = document.querySelector(".dynamic_testing");
+
   // Takeaways
   let reflection = document.querySelector(".dynamic_reflection");
 
@@ -112,6 +114,8 @@ let fetchCaseStudy = function (slug) {
   let r_insights_img = document.querySelector(".dynamic_r_insights_img");
 
   let iterations_img = document.querySelector(".dynamic_iterations_img");
+  let testing_img = document.querySelector(".dynamic_testing_img");
+
 
   base("Case_Study")
     .select({
@@ -204,6 +208,8 @@ let fetchCaseStudy = function (slug) {
           retrieveText(r_insights, "R_insights");
 
           retrieveText(iterations, "Iterations");
+          retrieveText(testing, "Testing");
+
           // Takeaways
           retrieveText(reflection, "Reflection");
 
@@ -286,6 +292,7 @@ let fetchCaseStudy = function (slug) {
           retrieveImage(r_insights_img, "R_insights_img");
 
           retrieveImage(iterations_img, "Iterations_img");
+          retrieveImage(testing_img, "Testing_img");
         });
       },
       function done(err) {
