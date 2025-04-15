@@ -145,29 +145,29 @@ let fetchCaseStudy = function (slug) {
     .eachPage(
       function page(records, fetchNextPage) {
         records.forEach(function (record) {
-          //retrive & fill text function
+          //retrieve & fill text function
           function retrieveText(object, fieldName) {
             if (record.fields[fieldName] !== undefined && object !== null) {
               if (record.fields[fieldName] == "skip") {
-                // skip content if undefined
+                // skip text if text is marked as "skip" in Airtable
                 object.style.display = "none";
               } else {
-                // show title or content if defined
+                // show text if defined in Airtable
                 object.innerHTML = record.fields[fieldName];
               }
             } else {
-              // hide title or content if undefined
+              // hide title and text if undefined
               // console.log(`${fieldName} is undefined.`);
               try {
-                object.previousElementSibling.style.display = "none"; //find the element that display title
-                object.style.display = "none";
+                object.previousElementSibling.style.display = "none"; //hide the element that display title
+                object.style.display = "none"; //hide the element that display text
               } catch (error) {
                 console.log(error);
               }
             }
           }
 
-          //retrive & fill images function
+          //retrieve & fill images function
           function retrieveImage(object, fieldName) {
             if (record.fields[fieldName] !== undefined && object !== null) {
               object.setAttribute(
@@ -175,7 +175,8 @@ let fetchCaseStudy = function (slug) {
                 record.fields[fieldName][0].thumbnails.full.url
               );
             } else if (object !== null) {
-              object.style.display = "none";
+              object.parentElement.previousElementSibling.style.display = "none"; //hide the element that display title
+              object.style.display = "none"; // hide the element that display image
               // object.setAttribute('src', record.fields.Placeholder_img[0].thumbnails.full.url);
             }
           }
