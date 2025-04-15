@@ -62,6 +62,12 @@ let fetchCaseStudy = function (slug) {
   let iterations = document.querySelector(".dynamic_iterations");
   let testing = document.querySelector(".dynamic_testing");
 
+  // Site map
+  let site_map = document.querySelector(".dynamic_site_map");
+
+  // Components
+  let components = document.querySelector(".dynamic_components");
+
   // Takeaways
   let reflection = document.querySelector(".dynamic_reflection");
 
@@ -116,6 +122,19 @@ let fetchCaseStudy = function (slug) {
   let iterations_img = document.querySelector(".dynamic_iterations_img");
   let testing_img = document.querySelector(".dynamic_testing_img");
 
+  // Site map
+  let site_map_img = document.querySelector(".dynamic_site_map_img");
+
+  // Components
+  let components_img = document.querySelector(".dynamic_components_img");
+
+  // Shipped key features
+  let content_creation_img = document.querySelector(".dynamic_content_creation_img");
+  let profile_img = document.querySelector(".dynamic_profile_img");
+  let analytics_img = document.querySelector(".dynamic_analytics_img");
+  let discovery_img = document.querySelector(".dynamic_discovery_img");
+  let engagement_img = document.querySelector(".dynamic_engagement_img");
+  let marketing_img = document.querySelector(".dynamic_marketing_img");
 
   base("Case_Study")
     .select({
@@ -210,6 +229,12 @@ let fetchCaseStudy = function (slug) {
           retrieveText(iterations, "Iterations");
           retrieveText(testing, "Testing");
 
+          // Site map
+          retrieveText(site_map, "Site_map");
+
+          // Components
+          retrieveText(components, "Components");
+
           // Takeaways
           retrieveText(reflection, "Reflection");
 
@@ -294,6 +319,21 @@ let fetchCaseStudy = function (slug) {
           retrieveImage(iterations_img, "Iterations_img");
           retrieveImage(testing_img, "Testing_img");
 
+          // Site map
+          retrieveImage(site_map_img, "Site_map_img");
+
+          // Components
+          retrieveImage(components_img, "Components_img");
+
+          // Shipped key features
+          retrieveImage(content_creation_img, "Content_creation_img");
+          retrieveImage(profile_img, "Profile_img");
+          retrieveImage(analytics_img, "Analytics_img");
+          retrieveImage(discovery_img, "Discovery_img");
+          retrieveImage(engagement_img, "Engagement_img");
+          retrieveImage(marketing_img, "Marketing_img");
+
+          // Format DOM sections
           // hide sections if all h3 and p are hidden (i.e. there's no content)
           document.querySelectorAll("section").forEach((section) => {
             const content = section.querySelectorAll("h3, p");
