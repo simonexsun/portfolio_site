@@ -23,7 +23,7 @@ ul {
 }
 
 .content {
-  margin: 0vw 20vw;
+  margin: 0vw 10vw;
 }
 
 .scroll_content {
@@ -280,6 +280,26 @@ ul {
 
 .right_column {
   grid-area: 1 / 2 / 2 / 3;
+}
+
+.three_column_parent {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 30px;
+  grid-row-gap: 0px;
+}
+
+.left_small_column {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.middle_small_column {
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+.right_big_column {
+  grid-area: 1 / 2 / 2 / 4;
 }
 
 /* dropdown menu layout */
