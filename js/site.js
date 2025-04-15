@@ -293,6 +293,19 @@ let fetchCaseStudy = function (slug) {
 
           retrieveImage(iterations_img, "Iterations_img");
           retrieveImage(testing_img, "Testing_img");
+
+          // hide sections if all h3 and p are hidden (i.e. there's no content)
+          document.querySelectorAll("section").forEach((section) => {
+            const content = section.querySelectorAll("h3, p");
+            if (content.length > 0 && [...content].every(
+                (el) => getComputedStyle(el).display === "none"
+              )
+            ){
+              section.style.display = "none";
+              console.log("h3 and p are hidden");
+            }
+          });
+
         });
       },
       function done(err) {
